@@ -1,0 +1,109 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.dragging-item * {
+  cursor: grabbing !important;
+}
+
+:global {
+  .dragging-item * {
+    cursor: grabbing !important;
+  }
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+  .left-panel {
+    width: 20%;
+    background: #dcd9d5;
+    min-height: 100%;
+
+    h1 {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+  }
+
+  .right-panel {
+    min-height: 100%;
+    width: 80%;
+    h1 {
+      margin: 20px 0;
+      text-align: center;
+    }
+  }
+
+  .droppable {
+    height: 50px;
+    border: 2px dashed gray;
+    &.is-over {
+      background: rgba(0,0,0,0.1);
+    }
+  }
+
+  .components-list {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+
+    .card {
+      display: flex;
+      justify-content: center;
+
+      p {
+        font-size: 20px;
+        &:hover {
+          cursor: grab;
+        }
+      }
+    }
+  }
+}
+
+.card-preview {
+  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
+  &.text-card {
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  &.drop-col-2-preview {
+    background: white;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    .box {
+      border: 2px dashed gray;
+      height: 40px;
+      width: 100%;
+    }
+
+    &.drop-col-3-preview {
+      width: 130px;
+    }
+  }
+}
+
+.preview-section {
+  .section {
+    width: 100%;
+  }
+
+  .droppable-col-2 {
+    width: 100%;
+    display: flex;
+  }
+
+  .droppable-col-3 {
+    width: 100%;
+    display: flex;
+  }
+}
