@@ -15,7 +15,7 @@ const reducer = (state, action) => {
     case SET_STATE:
       return action.payload
     case CHANGE_TYPE:
-      const DeepStateCopy = _.cloneDeep(state);
+      const DeepStateCopy = _.cloneDeep(state.data);
 
       let str = ""
       _.forEach(runningIndex, (el,index) => {
@@ -27,49 +27,59 @@ const reducer = (state, action) => {
         str += `children[${el}]`
       })
 
-      _.set(DeepStateCopy[runningIndex[0]], str, {...payload})
 
-      return DeepStateCopy
+      if (str !== ""){
+        _.set(DeepStateCopy[runningIndex[0]], str, {...payload})
+      } else {
+        DeepStateCopy[runningIndex[0]] = {...payload}
+      }
+
+      return {...state, data: DeepStateCopy}
     default:
       return state
   }
 }
 
 export const DropDataProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, [
-    {
-      type: TextType
-    },
-    {
-      type: ThreeDroppableColumns,
-      name: "Three Columns",
-      wrapperClassName: "droppable-col-3",
-      children: [
-        {
-          type: DroppableArea
-        },
-        {
-          type: DroppableArea
-        },
-        {
-          type: ThreeDroppableColumns,
-          name: "Three Columns",
-          wrapperClassName: "droppable-col-3",
-          children: [
-            {
-              type: DroppableArea
-            },
-            {
-              type: DroppableArea
-            },
-            {
-              type: DroppableArea
-            }
-          ]
-        },
-      ]
-    },
-  ])
+  const [state, dispatch] = useReducer(reducer, {
+    data: [
+      {
+        type: DroppableArea
+      },
+      {
+        type: TextType
+      },
+      {
+        type: ThreeDroppableColumns,
+        name: "Three Columns",
+        wrapperClassName: "droppable-col-3",
+        children: [
+          {
+            type: DroppableArea
+          },
+          {
+            type: DroppableArea
+          },
+          {
+            type: ThreeDroppableColumns,
+            name: "Three Columns",
+            wrapperClassName: "droppable-col-3",
+            children: [
+              {
+                type: DroppableArea
+              },
+              {
+                type: DroppableArea
+              },
+              {
+                type: DroppableArea
+              }
+            ]
+          },
+        ]
+      },
+    ]
+  })
 
   const [isDragging, setIsDragging] = useState(false)
 

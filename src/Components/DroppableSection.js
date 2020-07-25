@@ -13,7 +13,6 @@ const DroppableSection = ({runningIndex, above}) => {
       cardType: monitor.getItemType()
     }),
     drop: item => {
-      console.log(runningIndex)
       dispatch({
         type: CHANGE_TYPE,
         runningIndex: runningIndex,
@@ -38,7 +37,7 @@ const DroppableSection = ({runningIndex, above}) => {
 
   return (
     <div
-      className={`droppable ${isOver && canDrop && "is-over"}`}
+      className={`droppable ${(isOver && canDrop) ? "is-over" : ""}`}
       ref={dropRef}
     >
       {renderPreview()}
@@ -50,7 +49,7 @@ export default DroppableSection;
 
 
 const textTypePreviewJSX = (
-  <p>
+  <p className={"text-type-preview"}>
     Lorem ipsum dolor sit amet, consectetur adipisicing
     elit. Ab autem, beatae dolor doloribus error
     fuga fugit incidunt libero maiores officia quis.

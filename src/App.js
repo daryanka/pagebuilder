@@ -59,8 +59,7 @@ function App() {
             {CardList.map((el, i) => (
               <Card
                 key={el.type}
-                name={el.name}
-                type={el.type}
+                {...el}
               />
             ))}
           </div>
@@ -69,24 +68,10 @@ function App() {
         <div className={"right-panel"}>
           <h1>Preview</h1>
           <div className={"preview-section"}>
-            {/*{state.length === 0 ? (*/}
-            {/*  <DroppableSection/>*/}
-            {/*) : (*/}
-            {/*  state.map((el, index) => {*/}
-            {/*    return(*/}
-            {/*      <React.Fragment key={`list-${index}`}>*/}
-            {/*        {index === 0 && <DroppableSection index={index} above={true}/>}*/}
-            {/*        {el.type}*/}
-            {/*        <DroppableSection index={index} above={false}/>*/}
-            {/*      </React.Fragment>*/}
-            {/*    )*/}
-            {/*  })*/}
-            {/*)}*/}
-
-            {state.length === 0 ? (
+            {state.data.length === 0 ? (
               <DroppableSection/>
             ) : (
-              state.map((el, index) => {
+              state.data.map((el, index) => {
                 return renderListWithChildren([index], el)
               })
             )}
@@ -100,7 +85,7 @@ function App() {
 const renderListWithChildren = (runningIndex, currentElement) => {
   if (currentElement.children) {
     return(
-      <div className={currentElement.wrapperClassName}>
+      <div key={JSON.stringify(runningIndex)} className={currentElement.wrapperClassName}>
         {currentElement.children.map((el, index) => {
           return renderListWithChildren([...runningIndex, index], el)
         })}
@@ -115,13 +100,13 @@ const renderItemFromObj = (obj, runningIndex) => {
   switch (obj.type) {
     case TextType:
       return(
-        <SectionWrapper>
+        <SectionWrapper key={JSON.stringify(runningIndex)}>
           <p>Testing 123</p>
         </SectionWrapper>
       )
     case DroppableArea:
       return(
-        <SectionWrapper>
+        <SectionWrapper key={JSON.stringify(runningIndex)}>
             <DroppableSection runningIndex={runningIndex} />
         </SectionWrapper>
       )
@@ -129,7 +114,5 @@ const renderItemFromObj = (obj, runningIndex) => {
       return null
   }
 }
-
-//index={[1,3,5,1]}
 
 export default App;

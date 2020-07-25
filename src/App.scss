@@ -41,6 +41,8 @@
   .droppable {
     height: 50px;
     border: 2px dashed gray;
+    text-overflow: "...";
+    overflow: hidden;
     &.is-over {
       background: rgba(0,0,0,0.1);
     }

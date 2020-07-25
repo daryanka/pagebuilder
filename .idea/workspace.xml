@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CardTypes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/Card.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/TextCardPreview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/ThreeColumnCardPreview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/TwoColumnCardPreview.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/CustomDragLayer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/DroppableSection.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Components/SectionWrapper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DropContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Cards/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Cards/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DroppableSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DroppableSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DropContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DropContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,12 +56,24 @@
       <updated>1595031327896</updated>
       <workItem from="1595031331202" duration="753000" />
       <workItem from="1595611269631" duration="15383000" />
-      <workItem from="1595690190278" duration="13134000" />
+      <workItem from="1595690190278" duration="15297000" />
     </task>
+    <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
+      <created>1595707981929</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1595707981929</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initial commit, added ability to replace droppable areas" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit, added ability to replace droppable areas" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Inspections" timestamp="1595611383752">
@@ -101,8 +100,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595691310607" />
-    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1595705786695">
+    <state x="656" y="252" width="607" height="536" key="find.popup" timestamp="1595708284854">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595705786695" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.p
+    <state x="656" y="252" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595708284854" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1595629551432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595629551432" />
+  </component>
+</project>

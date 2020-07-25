@@ -36,6 +36,8 @@
 .App .droppable {
   height: 50px;
   border: 2px dashed gray;
+  text-overflow: "...";
+  overflow: hidden;
 }
 .App .droppable.is-over {
   background: rgba(0, 0, 0, 0.1);
