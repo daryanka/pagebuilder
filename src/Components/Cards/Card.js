@@ -1,10 +1,10 @@
 import React, {useContext, useState} from "react";
-import {DropDataContext} from "../../DropContext";
+import {DropDataContext, SET_DRAGGING} from "../../DropContext";
 import {useDrag} from "react-dnd";
 import {getEmptyImage} from "react-dnd-html5-backend";
 
 const Card = (props) => {
-  const [a,b,c, setDragging] = useContext(DropDataContext)
+  const [state, dispatch] = useContext(DropDataContext)
   const [dragProps, dragRef, preview] = useDrag({
     item: {
       type: props.type,
@@ -22,7 +22,10 @@ const Card = (props) => {
   }, [])
 
   React.useEffect(() => {
-    setDragging(dragProps.isDragging)
+    dispatch({
+      type: SET_DRAGGING,
+      payload: dragProps.isDragging
+    })
   }, [dragProps.isDragging])
 
   return (

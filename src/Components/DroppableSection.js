@@ -1,9 +1,10 @@
 import React, {useContext} from "react";
-import {CHANGE_TYPE, DropDataContext} from "../DropContext";
+import {CHANGE_TYPE, DropDataContext, SET_SELECTED} from "../DropContext";
 import {useDrop} from "react-dnd";
 import {TextType, TwoDroppableColumns, ThreeDroppableColumns, DroppableArea} from "../CardTypes";
+import {v4} from "uuid";
 
-const DroppableSection = ({runningIndex, above}) => {
+const DroppableSection = ({runningIndex, between}) => {
   const [state, dispatch] = useContext(DropDataContext)
   const [{isOver, canDrop, cardType}, dropRef] = useDrop({
     accept: [TextType,TwoDroppableColumns, ThreeDroppableColumns, DroppableArea],
@@ -13,10 +14,29 @@ const DroppableSection = ({runningIndex, above}) => {
       cardType: monitor.getItemType()
     }),
     drop: item => {
+      const id = v4()
+
+      const payload = {
+        ...item, id: id,
+      }
+
+      switch (item.type) {
+        case TextType:
+          payload.style = {}
+          payload.data = "Add some text..."
+          break;
+        default:
+          break;
+      }
       dispatch({
         type: CHANGE_TYPE,
         runningIndex: runningIndex,
-        payload: item
+        payload: payload
+      })
+
+      dispatch({
+        type: SET_SELECTED,
+        payload: id
       })
     }
   })
@@ -27,6 +47,10 @@ const DroppableSection = ({runningIndex, above}) => {
       switch (cardType) {
         case TextType:
           return textTypePreviewJSX
+        case TwoDroppableColumns:
+          return twoColTypePreviewJSX
+        case ThreeDroppableColumns:
+          return threeColTypePreviewJSX
         default:
           return null
       }
@@ -37,7 +61,7 @@ const DroppableSection = ({runningIndex, above}) => {
 
   return (
     <div
-      className={`droppable ${(isOver && canDrop) ? "is-over" : ""}`}
+      className={`droppable ${(isOver && canDrop) ? "is-over" : ""} ${between ? "between" : ""} ${state.isDragging ? "show" : ""}`}
       ref={dropRef}
     >
       {renderPreview()}
@@ -54,4 +78,19 @@ const textTypePreviewJSX = (
     elit. Ab autem, beatae dolor doloribus error
     fuga fugit incidunt libero maiores officia quis.
   </p>
+)
+
+const twoColTypePreviewJSX = (
+  <div className={"two-col-preview"}>
+    <div className={"box"} />
+    <div className={"box"} />
+  </div>
+)
+
+const threeColTypePreviewJSX = (
+  <div className={"three-col-preview"}>
+    <div className={"box"} />
+    <div className={"box"} />
+    <div className={"box"} />
+  </div>
 )

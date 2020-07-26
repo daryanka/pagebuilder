@@ -4,23 +4,131 @@ import _ from "lodash";
 
 export const DropDataContext = createContext();
 
-export const SET_STATE = "SET_STATE";
-export const CHANGE_TYPE = "CHANGE_TYPE"
+export const SET_DRAGGING = "SET_DRAGGING";
+export const CHANGE_TYPE = "CHANGE_TYPE";
+export const SET_SELECTED = "SET_SELECTED";
+export const UPDATE_SECTION = "UPDATE_SECTION";
+export const DELETE_SECTION = "DELETE_SECTION";
+
+
+export const getSelectedObj = (data, id) => {
+  for (let i = 0; i < data.length; i++) {
+    const curr = data[i]
+    if (curr.id === id && curr.type !== DroppableArea) {
+      return {...curr}
+    }
+    if (curr.children) {
+      const res = getSelectedObj(curr.children, id)
+      if (res) {
+        return res
+      }
+    }
+  }
+  return null
+}
+
+const updateInBetweens = (data) => {
+  const between = {
+    type: DroppableArea,
+    between: true
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    const curr = data[i]
+    // if current element is droppable area then skip
+    if (curr.type === DroppableArea) {
+      continue
+    }
+
+    // check if below is a droppable area
+    // if not then add droppable area to below
+
+    if (i === 0) {
+      // if first index then always add a hidden above
+      data.splice(0, 0, {
+        type: DroppableArea,
+        between: true
+      })
+
+      i++;
+    }
+
+    if (i === data.length - 1) {
+      // if last index then always add a hidden below
+      data.push({
+        type: DroppableArea,
+        between: true
+      })
+
+      continue
+    }
+
+    // Check if below needs a hidden
+    if (data[i + 1].type !== DroppableArea) {
+      data.splice(i + 1, 0, {
+        type: DroppableArea,
+        between: true
+      })
+
+      i++;
+    }
+  }
+}
+
+const getRunningIndex = (data, id, arr) => {
+  for (let i = 0; i < data.length; i++) {
+    const curr = data[i]
+    if (curr.id === id) {
+      return [...arr, i]
+    }
+
+    if (curr.children) {
+      const result = getRunningIndex(data[i].children, id, [...arr, i])
+      if (result) {
+        return result
+      }
+    }
+  }
+
+  return null
+}
 
 const reducer = (state, action) => {
-  const {runningIndex, payload} = action
-
+  const {runningIndex, payload, id} = action
 
   switch (action.type) {
-    case SET_STATE:
-      return action.payload
+    case UPDATE_SECTION:
+      // Get running index by id
+
+      // Set that index to updated payload
+
+      const res = getRunningIndex(state.data, id, [])
+
+      console.log(state)
+      console.log(res)
+      console.log(id)
+
+      return state;
+    case SET_SELECTED:
+      return {
+        ...state,
+        selected: {
+          id: action.payload
+        }
+      }
+    case SET_DRAGGING:
+      return {
+        ...state,
+        isDragging: action.payload
+      }
     case CHANGE_TYPE:
       const DeepStateCopy = _.cloneDeep(state.data);
-
       let str = ""
-      _.forEach(runningIndex, (el,index) => {
+      _.forEach(runningIndex, (el, index) => {
         // First index will be done manually, so can be skipped
-        if (index === 0) {return}
+        if (index === 0) {
+          return
+        }
         if (index !== 1) {
           str += "."
         }
@@ -28,11 +136,13 @@ const reducer = (state, action) => {
       })
 
 
-      if (str !== ""){
+      if (str !== "") {
         _.set(DeepStateCopy[runningIndex[0]], str, {...payload})
       } else {
         DeepStateCopy[runningIndex[0]] = {...payload}
       }
+
+      updateInBetweens(DeepStateCopy)
 
       return {...state, data: DeepStateCopy}
     default:
@@ -45,46 +155,16 @@ export const DropDataProvider = (props) => {
     data: [
       {
         type: DroppableArea
-      },
-      {
-        type: TextType
-      },
-      {
-        type: ThreeDroppableColumns,
-        name: "Three Columns",
-        wrapperClassName: "droppable-col-3",
-        children: [
-          {
-            type: DroppableArea
-          },
-          {
-            type: DroppableArea
-          },
-          {
-            type: ThreeDroppableColumns,
-            name: "Three Columns",
-            wrapperClassName: "droppable-col-3",
-            children: [
-              {
-                type: DroppableArea
-              },
-              {
-                type: DroppableArea
-              },
-              {
-                type: DroppableArea
-              }
-            ]
-          },
-        ]
-      },
-    ]
+      }
+    ],
+    isDragging: false,
+    selected: {
+      runningIndex: []
+    }
   })
 
-  const [isDragging, setIsDragging] = useState(false)
-
-  return(
-    <DropDataContext.Provider value={[state, dispatch, isDragging, setIsDragging]}>
+  return (
+    <DropDataContext.Provider value={[state, dispatch]}>
       {props.children}
     </DropDataContext.Provider>
   )

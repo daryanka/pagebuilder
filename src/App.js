@@ -7,12 +7,14 @@ import DroppableSection from "./Components/DroppableSection";
 import CustomDragLayer from "./Components/CustomDragLayer";
 import {DropDataContext} from "./DropContext";
 import {TwoDroppableColumns, TextType, DroppableArea, ThreeDroppableColumns} from "./CardTypes";
-import SectionWrapper from "./Components/SectionWrapper";
+import SectionWrapper from "./Components/Sections/SectionWrapper";
+import DetailsPanel from "./Containers/DetailPanel";
+import TextSection from "./Components/Sections/TextSection";
 
 const CardList = [
   {
     type: TextType,
-    name: "Text Card"
+    name: "Text Card",
   },
   {
     type: TwoDroppableColumns,
@@ -50,7 +52,7 @@ function App() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div id={"empty"} />
+      <div id={"empty"}/>
       <CustomDragLayer/>
       <div className="App">
         <div className={"left-panel"}>
@@ -65,8 +67,8 @@ function App() {
           </div>
         </div>
 
-        <div className={"right-panel"}>
-          <h1>Preview</h1>
+        <div className={"center-panel"}>
+          <h1 className={"title"}>Preview</h1>
           <div className={"preview-section"}>
             {state.data.length === 0 ? (
               <DroppableSection/>
@@ -77,6 +79,10 @@ function App() {
             )}
           </div>
         </div>
+
+        <div className={"right-panel"}>
+          <DetailsPanel/>
+        </div>
       </div>
     </DndProvider>
   );
@@ -84,8 +90,8 @@ function App() {
 
 const renderListWithChildren = (runningIndex, currentElement) => {
   if (currentElement.children) {
-    return(
-      <div key={JSON.stringify(runningIndex)} className={currentElement.wrapperClassName}>
+    return (
+      <div key={runningIndex.join("")} className={currentElement.wrapperClassName}>
         {currentElement.children.map((el, index) => {
           return renderListWithChildren([...runningIndex, index], el)
         })}
@@ -100,14 +106,14 @@ const renderItemFromObj = (obj, runningIndex) => {
   switch (obj.type) {
     case TextType:
       return(
-        <SectionWrapper key={JSON.stringify(runningIndex)}>
-          <p>Testing 123</p>
+        <SectionWrapper id={obj.id} key={obj.id}>
+          <TextSection {...obj} />
         </SectionWrapper>
       )
     case DroppableArea:
       return(
-        <SectionWrapper key={JSON.stringify(runningIndex)}>
-            <DroppableSection runningIndex={runningIndex} />
+        <SectionWrapper key={runningIndex.join("")}>
+            <DroppableSection between={obj.between} runningIndex={runningIndex} />
         </SectionWrapper>
       )
     default:

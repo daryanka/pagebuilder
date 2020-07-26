@@ -25,22 +25,26 @@
   margin-top: 20px;
   text-align: center;
 }
-.App .right-panel {
+.App .center-panel {
   min-height: 100%;
-  width: 80%;
+  flex: 1;
 }
-.App .right-panel h1 {
+.App .center-panel .title {
   margin: 20px 0;
   text-align: center;
 }
-.App .droppable {
-  height: 50px;
-  border: 2px dashed gray;
-  text-overflow: "...";
-  overflow: hidden;
+.App .right-panel {
+  min-height: 100%;
+  width: 20%;
+  background: #bcbcbc;
 }
-.App .droppable.is-over {
-  background: rgba(0, 0, 0, 0.1);
+.App .right-panel h1 {
+  margin-top: 20px;
+  text-align: center;
+}
+.App .right-panel h3 {
+  text-align: center;
+  font-style: italic;
 }
 .App .components-list {
   display: flex;
@@ -58,6 +62,33 @@
   cursor: grab;
 }
 
+.two-col-preview {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.two-col-preview .box {
+  width: 100%;
+}
+.two-col-preview .box:nth-child(1) {
+  border-right: 2px dashed rgba(128, 128, 128, 0.7);
+}
+
+.three-col-preview {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.three-col-preview .box {
+  width: 100%;
+}
+.three-col-preview .box:nth-child(1) {
+  border-right: 2px dashed rgba(128, 128, 128, 0.7);
+}
+.three-col-preview .box:nth-child(2) {
+  border-right: 2px dashed rgba(128, 128, 128, 0.7);
+}
+
 .card-preview {
   cursor: pointer;
 }
@@ -69,7 +100,6 @@
   font-style: italic;
 }
 .card-preview.drop-col-2-preview {
-  background: white;
   width: 100px;
   height: 40px;
   display: flex;
@@ -84,7 +114,25 @@
 }
 
 .preview-section .section {
+  cursor: pointer;
   width: 100%;
+}
+.preview-section .droppable {
+  height: 50px;
+  border: 2px dashed rgba(128, 128, 128, 0.7);
+  text-overflow: "...";
+  overflow: hidden;
+}
+.preview-section .droppable.between {
+  display: none;
+  height: 10px;
+  border: 2px dashed rgba(128, 128, 128, 0.7);
+}
+.preview-section .droppable.between.show {
+  display: block;
+}
+.preview-section .droppable.is-over {
+  height: 50px;
 }
 .preview-section .droppable-col-2 {
   width: 100%;
