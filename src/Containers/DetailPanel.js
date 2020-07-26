@@ -2,25 +2,57 @@ import React, {useContext, useState} from "react";
 import {DropDataContext, getSelectedObj, UPDATE_SECTION} from "../DropContext";
 import _ from "lodash";
 import {TextType} from "../CardTypes";
+import TextInput from "../Components/DetailComponents/TextInput";
 
 const DetailsPanel = () => {
-  const [selected, setSelected] = useState([])
+  const [selected, setSelected] = useState()
   const [state, dispatch] = useContext(DropDataContext)
 
   React.useEffect(() => {
     const result = getSelectedObj(state.data, state.selected.id)
-    setSelected(result)
+    setSelected({...result})
   }, [state.selected.id])
+
+  const handleChangeStyle = (e) => {
+    e.persist()
+    setSelected(prev => ({
+      ...prev,
+      style: {
+        ...prev.style,
+        [e.target.name]: e.target.value
+      }
+    }))
+  }
+
+  const handleDataChange = (e) => {
+    e.persist()
+    setSelected(prev => ({
+      ...prev,
+      data: e.target.value
+    }))
+  }
+
+  React.useEffect(() => {
+    if (selected && selected.id) {
+      dispatch({
+        type: UPDATE_SECTION,
+        id: selected.id,
+        payload: selected
+      })
+    }
+  }, [selected])
+
 
   const renderOptions = () => {
     switch (selected.type) {
       case TextType:
         return(
           <div className={"options"}>
-            <button onClick={() => dispatch({
-              type: UPDATE_SECTION,
-              id: selected.id
-            })}>Update Test</button>
+            <TextInput
+              name={"data"}
+              handleChange={handleDataChange}
+              value={selected.data}
+            />
           </div>
         )
       default:
@@ -28,14 +60,7 @@ const DetailsPanel = () => {
     }
   }
 
-  const getName = (type) => {
-    switch (type) {
-      case TextType:
-        return "Text Card";
-      default:
-        return null
-    }
-  }
+  console.log(selected)
 
   return(
     <div>
@@ -53,3 +78,13 @@ const DetailsPanel = () => {
 }
 
 export default DetailsPanel
+
+
+const getName = (type) => {
+  switch (type) {
+    case TextType:
+      return "Text Card";
+    default:
+      return null
+  }
+}

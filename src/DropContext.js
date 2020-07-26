@@ -102,13 +102,33 @@ const reducer = (state, action) => {
 
       // Set that index to updated payload
 
-      const res = getRunningIndex(state.data, id, [])
+      const runningIndexArray = getRunningIndex(state.data, id, [])
 
-      console.log(state)
-      console.log(res)
-      console.log(id)
+      const stateCopy = _.cloneDeep(state.data);
+      let objStr = ""
 
-      return state;
+      _.forEach(runningIndexArray, (el, index) => {
+        // First index will be done manually, so can be skipped
+        if (index === 0) {
+          return
+        }
+        if (index !== 1) {
+          objStr += "."
+        }
+        objStr += `children[${el}]`
+      })
+
+
+      if (objStr !== "") {
+        _.set(stateCopy[runningIndexArray[0]], objStr, {...payload})
+      } else {
+        stateCopy[runningIndexArray[0]] = {...payload}
+      }
+
+      return {
+        ...state,
+        data: stateCopy
+      };
     case SET_SELECTED:
       return {
         ...state,
