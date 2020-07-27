@@ -8,8 +8,6 @@ const Card = (props) => {
   const [dragProps, dragRef, preview] = useDrag({
     item: {
       type: props.type,
-      children: props.children ? props.children : null,
-      wrapperClassName: props.wrapperClassName ? props.wrapperClassName : null,
     },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),

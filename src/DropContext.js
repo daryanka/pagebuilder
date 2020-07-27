@@ -103,6 +103,7 @@ const reducer = (state, action) => {
       // Set that index to updated payload
 
       const runningIndexArray = getRunningIndex(state.data, id, [])
+      console.log("runningIndex", runningIndexArray)
 
       const stateCopy = _.cloneDeep(state.data);
       let objStr = ""
@@ -124,6 +125,8 @@ const reducer = (state, action) => {
       } else {
         stateCopy[runningIndexArray[0]] = {...payload}
       }
+
+      console.log("payload is", payload)
 
       return {
         ...state,

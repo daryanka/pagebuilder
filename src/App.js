@@ -6,44 +6,36 @@ import Card from "./Components/Cards/Card";
 import DroppableSection from "./Components/DroppableSection";
 import CustomDragLayer from "./Components/CustomDragLayer";
 import {DropDataContext} from "./DropContext";
-import {TwoDroppableColumns, TextType, DroppableArea, ThreeDroppableColumns} from "./CardTypes";
+import {
+  TwoDroppableColumns,
+  TextType,
+  DroppableArea,
+  ThreeDroppableColumns,
+  ImageType
+} from "./CardTypes";
+
+// Section Imports
 import SectionWrapper from "./Components/Sections/SectionWrapper";
 import DetailsPanel from "./Containers/DetailPanel";
 import TextSection from "./Components/Sections/TextSection";
+import ImageSection from "./Components/Sections/ImageSection";
 
 const CardList = [
   {
-    type: TextType,
-    name: "Text Card",
-  },
-  {
     type: TwoDroppableColumns,
     name: "Two Columns",
-    wrapperClassName: "droppable-col-2",
-    children: [
-      {
-        type: DroppableArea
-      },
-      {
-        type: DroppableArea
-      }
-    ]
   },
   {
     type: ThreeDroppableColumns,
     name: "Three Columns",
-    wrapperClassName: "droppable-col-3",
-    children: [
-      {
-        type: DroppableArea
-      },
-      {
-        type: DroppableArea
-      },
-      {
-        type: DroppableArea
-      }
-    ]
+  },
+  {
+    type: TextType,
+    name: "Text",
+  },
+  {
+    type: ImageType,
+    name: "Image",
   },
 ];
 
@@ -110,10 +102,16 @@ const renderItemFromObj = (obj, runningIndex) => {
           <TextSection {...obj} />
         </SectionWrapper>
       )
+    case ImageType:
+      return(
+        <SectionWrapper id={obj.id} key={obj.id}>
+          <ImageSection {...obj}/>
+        </SectionWrapper>
+      )
     case DroppableArea:
       return(
-        <SectionWrapper key={runningIndex.join("")}>
-            <DroppableSection between={obj.between} runningIndex={runningIndex} />
+        <SectionWrapper droppable={true} key={runningIndex.join("")}>
+          <DroppableSection between={obj.between} runningIndex={runningIndex} />
         </SectionWrapper>
       )
     default:

@@ -1,13 +1,20 @@
 import React, {useContext} from "react";
 import {CHANGE_TYPE, DropDataContext, SET_SELECTED} from "../DropContext";
 import {useDrop} from "react-dnd";
-import {TextType, TwoDroppableColumns, ThreeDroppableColumns, DroppableArea} from "../CardTypes";
+import {TextType, TwoDroppableColumns, ThreeDroppableColumns, DroppableArea, ImageType} from "../CardTypes";
 import {v4} from "uuid";
+import ImageTypeBackground from "../Images/placeholder-img.jpg";
 
 const DroppableSection = ({runningIndex, between}) => {
   const [state, dispatch] = useContext(DropDataContext)
   const [{isOver, canDrop, cardType}, dropRef] = useDrop({
-    accept: [TextType,TwoDroppableColumns, ThreeDroppableColumns, DroppableArea],
+    accept: [
+      TextType,
+      TwoDroppableColumns,
+      ThreeDroppableColumns,
+      DroppableArea,
+      ImageType
+    ],
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
       canDrop: !!monitor.canDrop(),
@@ -24,6 +31,35 @@ const DroppableSection = ({runningIndex, between}) => {
         case TextType:
           payload.style = {}
           payload.data = "Add some text..."
+          break;
+        case TwoDroppableColumns:
+          payload.children = [
+            {
+              type: DroppableArea
+            },
+            {
+              type: DroppableArea
+            }
+          ]
+          payload.wrapperClassName = "droppable-col-2"
+          break;
+        case ThreeDroppableColumns:
+          payload.children = [
+            {
+              type: DroppableArea
+            },
+            {
+              type: DroppableArea
+            },
+            {
+              type: DroppableArea
+            }
+          ]
+          payload.wrapperClassName = "droppable-col-3"
+          break;
+        case ImageType:
+          payload.style = {}
+          payload.data = null
           break;
         default:
           break;
@@ -51,6 +87,8 @@ const DroppableSection = ({runningIndex, between}) => {
           return twoColTypePreviewJSX
         case ThreeDroppableColumns:
           return threeColTypePreviewJSX
+        case ImageType:
+          return imageTypePreviewJSX
         default:
           return null
       }
@@ -82,15 +120,21 @@ const textTypePreviewJSX = (
 
 const twoColTypePreviewJSX = (
   <div className={"two-col-preview"}>
-    <div className={"box"} />
-    <div className={"box"} />
+    <div className={"box"}/>
+    <div className={"box"}/>
   </div>
 )
 
 const threeColTypePreviewJSX = (
   <div className={"three-col-preview"}>
-    <div className={"box"} />
-    <div className={"box"} />
-    <div className={"box"} />
+    <div className={"box"}/>
+    <div className={"box"}/>
+    <div className={"box"}/>
+  </div>
+)
+
+const imageTypePreviewJSX = (
+  <div className={"image-type-preview"}>
+    <img src={ImageTypeBackground} alt="Image"/>
   </div>
 )

@@ -8,7 +8,7 @@ const SectionWrapper = (props) => {
     <div onClick={() => dispatch({
       type: SET_SELECTED,
       payload: props.id
-    })} className={`section`}>
+    })} className={`section ${props.droppable ? "" : "clickable"}`}>
       {props.children}
     </div>
   )

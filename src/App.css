@@ -89,6 +89,19 @@
   border-right: 2px dashed rgba(128, 128, 128, 0.7);
 }
 
+.image-type-preview {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #dfdfdf;
+  justify-content: center;
+  align-items: center;
+}
+.image-type-preview img {
+  max-height: 90%;
+  max-width: 90%;
+}
+
 .card-preview {
   cursor: pointer;
 }
@@ -114,8 +127,10 @@
 }
 
 .preview-section .section {
-  cursor: pointer;
   width: 100%;
+}
+.preview-section .section.clickable {
+  cursor: pointer;
 }
 .preview-section .droppable {
   height: 50px;
@@ -141,6 +156,30 @@
 .preview-section .droppable-col-3 {
   width: 100%;
   display: flex;
+}
+
+.image-section {
+  border: 2px dashed #a8a8a8;
+  transition: ease all 0.3s;
+  background: #dfdfdf;
+  position: relative;
+}
+.image-section.accept {
+  background-color: #f3f3f3;
+}
+.image-section.empty {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-section.empty p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.image-section.empty p span:nth-child(2) {
+  margin-top: 5px;
 }
 
 /*# sourceMappingURL=App.css.map */
