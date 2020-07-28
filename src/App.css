@@ -4,12 +4,8 @@
   box-sizing: border-box;
 }
 
-.dragging-item * {
-  cursor: grabbing !important;
-}
-
-:global .dragging-item * {
-  cursor: grabbing !important;
+body.resizing {
+  cursor: col-resize;
 }
 
 .App {
@@ -34,9 +30,20 @@
   text-align: center;
 }
 .App .right-panel {
+  position: relative;
   min-height: 100%;
   width: 20%;
+  min-width: 240px;
+  max-width: 50%;
   background: #bcbcbc;
+}
+.App .right-panel .resize-handle {
+  position: absolute;
+  height: 100%;
+  width: 10px;
+}
+.App .right-panel .resize-handle:hover {
+  cursor: col-resize;
 }
 .App .right-panel h1 {
   margin-top: 20px;
@@ -45,6 +52,12 @@
 .App .right-panel h3 {
   text-align: center;
   font-style: italic;
+}
+.App .right-panel .options {
+  width: 100%;
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
 }
 .App .components-list {
   display: flex;

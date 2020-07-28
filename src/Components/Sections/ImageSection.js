@@ -1,6 +1,7 @@
 import React, {useCallback, useState, useContext} from "react";
 import {DropDataContext, UPDATE_SECTION} from "../../DropContext";
 import {useDropzone} from 'react-dropzone'
+import ReactFitText from "react-fittext";
 
 const ImageSection = (props) => {
   const [state, dispatch] = useContext(DropDataContext)
@@ -36,7 +37,7 @@ const ImageSection = (props) => {
 
   if (props.data) {
     return (
-      <img src={props.data} alt="image"/>
+      <img src={props.data} alt="image" style={props.style ? props.style : {}}/>
     )
   }
 

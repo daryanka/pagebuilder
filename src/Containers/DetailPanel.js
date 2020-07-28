@@ -3,6 +3,7 @@ import {DropDataContext, getSelectedObj, UPDATE_SECTION} from "../DropContext";
 import _ from "lodash";
 import {TextType} from "../CardTypes";
 import TextInput from "../Components/DetailComponents/TextInput";
+import TextArea from "../Components/DetailComponents/TextArea";
 
 const DetailsPanel = () => {
   const [selected, setSelected] = useState()
@@ -48,9 +49,9 @@ const DetailsPanel = () => {
       case TextType:
         return(
           <div className={"options"}>
-            <TextInput
+            <TextArea
               name={"data"}
-              handleChange={handleDataChange}
+              onChange={handleDataChange}
               value={selected.data}
             />
           </div>

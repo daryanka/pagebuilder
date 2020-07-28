@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useRef, useCallback} from "react";
 import "./App.css";
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
@@ -40,7 +40,34 @@ const CardList = [
 ];
 
 function App() {
+  const detailsHandleRef = useRef();
+  const detailsRef = useRef();
+
   const [state] = useContext(DropDataContext)
+  const handleMouseMove = useCallback((e) => {
+    const size = window.innerWidth - e.x;
+    detailsRef.current.style.width = `${size}px`
+    document.body.classList.add("resizing")
+  }, [])
+
+  React.useEffect(() => {
+    const handleMouseDown = (e) => {
+      e.preventDefault()
+      // Listen to mouse moving
+      window.addEventListener("mousemove", handleMouseMove)
+
+      // Listen to when mouse click ends to remove previous event handler
+      window.addEventListener("mouseup", handleMouseUp)
+    }
+
+    const handleMouseUp = () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      document.body.classList.remove("resizing")
+    }
+
+    detailsHandleRef.current.addEventListener("mousedown", handleMouseDown)
+    return () => detailsHandleRef.current.removeEventListener("mousedown", handleMouseDown)
+  }, [])
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -72,7 +99,8 @@ function App() {
           </div>
         </div>
 
-        <div className={"right-panel"}>
+        <div ref={detailsRef} className={"right-panel"}>
+          <div ref={detailsHandleRef} className={"resize-handle resizing"}/>
           <DetailsPanel/>
         </div>
       </div>
