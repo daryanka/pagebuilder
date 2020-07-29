@@ -1,10 +1,20 @@
-import React, {useCallback, useState, useContext} from "react";
+import React, {useCallback, useState, useContext, useRef} from "react";
 import {DropDataContext, UPDATE_SECTION} from "../../DropContext";
 import {useDropzone} from 'react-dropzone'
 import ReactFitText from "react-fittext";
 
 const ImageSection = (props) => {
+  const [fontSize, setFontSize] = useState(16)
+  const divRef = useRef();
   const [state, dispatch] = useContext(DropDataContext)
+
+  const handleResize = useCallback((e) => {
+    const calc = 0.05079365079 * divRef.current.clientWidth;
+    if (calc <= 16) {
+      setFontSize(calc)
+    }
+  }, [])
+
   const onDrop = useCallback((files) => {
     files.forEach((file) => {
       const reader = new FileReader();
@@ -28,6 +38,12 @@ const ImageSection = (props) => {
     })
   }, [])
 
+  React.useEffect(() => {
+    window.addEventListener("resize", handleResize)
+
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
 
   const {getRootProps, getInputProps, isDragActive, isDragAccept} = useDropzone({
     multiple: false,
@@ -42,20 +58,24 @@ const ImageSection = (props) => {
   }
 
   return (
-    <div className={`image-section ${isDragActive} empty ${isDragAccept && "accept"}`} {...getRootProps()}>
-      <input {...getInputProps()} />
-      {isDragActive ? (
-        isDragAccept ? (
-          <p>Drop the image here...</p>
+    <div ref={divRef}>
+      <div style={{
+        fontSize: `${fontSize}px`
+      }} className={`image-section ${isDragActive} empty ${isDragAccept && "accept"}`} {...getRootProps()}>
+        <input {...getInputProps()} />
+        {isDragActive ? (
+          isDragAccept ? (
+            <p>Drop the image here...</p>
+          ) : (
+            <p>Invalid file type</p>
+          )
         ) : (
-          <p>Invalid file type</p>
-        )
-      ) : (
-        <p>
-          <span>Drag and drop an image here, or click to select image</span>
-          <span>(accepted file types: png, jpeg, svg)</span>
-        </p>
-      )}
+          <p>
+            <span>Drop image here, or click to select image</span>
+            <span>(png, jpeg, svg)</span>
+          </p>
+        )}
+      </div>
     </div>
   )
 }
