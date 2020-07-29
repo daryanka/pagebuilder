@@ -184,7 +184,8 @@ body.resizing {
   background-color: #f3f3f3;
 }
 .image-section.empty {
-  font-size: 20vi;
+  overflow: hidden;
+  text-overflow: ellipsis;
   height: 100%;
   min-height: 80px;
   display: flex;

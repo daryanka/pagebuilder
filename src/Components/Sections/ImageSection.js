@@ -4,17 +4,7 @@ import {useDropzone} from 'react-dropzone'
 import ReactFitText from "react-fittext";
 
 const ImageSection = (props) => {
-  const [fontSize, setFontSize] = useState(16)
-  const divRef = useRef();
   const [state, dispatch] = useContext(DropDataContext)
-
-  const handleResize = useCallback((e) => {
-    const calc = 0.05079365079 * divRef.current.clientWidth;
-    if (calc <= 16) {
-      setFontSize(calc)
-    }
-  }, [])
-
   const onDrop = useCallback((files) => {
     files.forEach((file) => {
       const reader = new FileReader();
@@ -38,13 +28,6 @@ const ImageSection = (props) => {
     })
   }, [])
 
-  React.useEffect(() => {
-    window.addEventListener("resize", handleResize)
-
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-
   const {getRootProps, getInputProps, isDragActive, isDragAccept} = useDropzone({
     multiple: false,
     onDrop: onDrop,
@@ -58,10 +41,8 @@ const ImageSection = (props) => {
   }
 
   return (
-    <div ref={divRef}>
-      <div style={{
-        fontSize: `${fontSize}px`
-      }} className={`image-section ${isDragActive} empty ${isDragAccept && "accept"}`} {...getRootProps()}>
+    <div>
+      <div className={`image-section ${isDragActive} empty ${isDragAccept && "accept"}`} {...getRootProps()}>
         <input {...getInputProps()} />
         {isDragActive ? (
           isDragAccept ? (

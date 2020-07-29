@@ -215,7 +215,8 @@ body.resizing {
   }
 
   &.empty {
-    font-size: 20vi;
+    overflow: hidden;
+    text-overflow: ellipsis;
     height: 100%;
     min-height: 80px;
     display: flex;
