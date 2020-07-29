@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Components/Cards/ImageCardPreview.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/CustomDragLayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/CustomDragLayer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DetailComponents/TextInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DetailComponents/TextInput.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/DroppableSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DroppableSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Sections/ImageSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Sections/ImageSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/DetailPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/DetailPanel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +57,7 @@
       <workItem from="1595765194024" duration="1539000" />
       <workItem from="1595869232461" duration="9247000" />
       <workItem from="1595942072059" duration="12556000" />
-      <workItem from="1596041278604" duration="13269000" />
+      <workItem from="1596041278604" duration="14298000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
       <created>1595707981929</created>
@@ -115,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596041770043</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added ability to change padding">
+      <created>1596062483459</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1596062483459</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +142,8 @@
     <MESSAGE value="WIP" />
     <MESSAGE value="flexible font size + fixed css for droppable heights" />
     <MESSAGE value="fixed styling issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed styling issue" />
+    <MESSAGE value="added ability to change padding" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ability to change padding" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Inspections" timestamp="1595611383752">

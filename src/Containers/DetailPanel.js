@@ -15,7 +15,7 @@ const DetailsPanel = () => {
     borderRadius: false
   })
 
-  const [individual, setIndividual] = useState({
+  const [multiple, setMultiple] = useState({
     margin: false,
     padding: false,
     border: false,
@@ -28,6 +28,19 @@ const DetailsPanel = () => {
   React.useEffect(() => {
     const result = getSelectedObj(state.data, state.selected.id)
     setSelected({...result})
+    // Check margin, padding, border, borderRadius to see if they should be multiple or not
+    const types = ["margin", "padding", "border"];
+    if (result) {
+      types.forEach(el => {
+        console.log("type", el)
+        console.log("type-result", result.style[el])
+        if (result.style[el]) {
+          setMultiple((prev) => ({...prev, [el]: false}))
+        } else {
+          setMultiple((prev) => ({...prev, [el]: true}))
+        }
+      })
+    }
   }, [state.selected])
 
   const handleChangeStyle = (e) => {
@@ -92,7 +105,7 @@ const DetailsPanel = () => {
                 />
               </div>
             </div>
-            {SizePaddingJSX()}
+            {SizingJSX()}
           </div>
         )
       case ImageType:
@@ -108,7 +121,7 @@ const DetailsPanel = () => {
               <p>Image: {selected.fileName}</p>
               <button onClick={clearImage}>Clear Image</button>
             </div>
-            {SizePaddingJSX()}
+            {SizingJSX()}
           </div>
         )
       default:
@@ -116,8 +129,8 @@ const DetailsPanel = () => {
     }
   }
 
-  const handleSwitchIndividual = (type, val) => {
-    setIndividual(prev => ({...prev, [type]: val}))
+  const handleMultipleSwitch = (type, val) => {
+    setMultiple(prev => ({...prev, [type]: val}))
 
     if (type === "borderRadius") {
       return
@@ -140,13 +153,15 @@ const DetailsPanel = () => {
         delete returnObj.style[`${type}Bottom`]
         delete returnObj.style[`${type}Left`]
         delete returnObj.style[`${type}Right`]
+
+        returnObj.style[`${type}`] = "0px"
       }
 
       return returnObj
     })
   }
 
-  const SizePaddingJSX = () => {
+  const SizingJSX = () => {
     console.log("parsed value = ", parseInt(selected.style.padding))
     console.log("normal value = ", selected.style.padding)
     return(
@@ -163,19 +178,19 @@ const DetailsPanel = () => {
                   <TextInput
                     name={"padding"}
                     value={parseInt(selected.style.padding) ? parseInt(selected.style.padding) : 0}
-                    disabled={individual.padding}
+                    disabled={multiple.padding}
                     onChange={handleChangeStyle}
                     type={"number"}
                   />
                   <p className={"px"}>px</p>
                 </div>
                 <div className={"settings"}>
-                  <img onClick={() => handleSwitchIndividual("padding", false)} src={AllPaddings} alt="all-paddings"/>
-                  <img onClick={() => handleSwitchIndividual("padding", true)} src={IndividualPaddings} alt="individual-paddings"/>
+                  <img onClick={() => handleMultipleSwitch("padding", false)} src={AllPaddings} alt="all-paddings"/>
+                  <img onClick={() => handleMultipleSwitch("padding", true)} src={IndividualPaddings} alt="individual-paddings"/>
                 </div>
               </div>
             </div>
-            {individual.padding && (
+            {multiple.padding && (
               <div className={"multiple"}>
                 {["Top", "Right", "Bottom", "Left"].map(el => {
                   return(

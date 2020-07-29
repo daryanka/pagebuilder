@@ -29,16 +29,16 @@ const DroppableSection = ({runningIndex, between}) => {
 
         style: {
           // Default padding
-          "padding": 0,
+          "padding": "0px",
 
           // Default Margin
-          "margin": 0,
+          "margin": "0px",
 
           // Default border
-          "border": 0,
+          "border": "0px",
 
           // Default border radius
-          "borderRadius": 0,
+          "borderRadius": "0px",
         }
       }
 
