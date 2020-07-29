@@ -1,5 +1,5 @@
 import React, {useCallback, useState, useContext, useRef} from "react";
-import {DropDataContext, UPDATE_SECTION} from "../../DropContext";
+import {DropDataContext, SET_SELECTED, UPDATE_SECTION} from "../../DropContext";
 import {useDropzone} from 'react-dropzone'
 import ReactFitText from "react-fittext";
 
@@ -22,6 +22,11 @@ const ImageSection = (props) => {
             fileName: file.name
           }
         })
+
+        dispatch({
+          type: SET_SELECTED,
+          payload: props.id
+        })
       }
 
       reader.readAsDataURL(file)
@@ -33,6 +38,7 @@ const ImageSection = (props) => {
     onDrop: onDrop,
     accept: ["image/jpeg", "image/png", "image/svg+xml"],
   })
+
 
   if (props.data) {
     return (

@@ -24,12 +24,26 @@ const DroppableSection = ({runningIndex, between}) => {
       const id = v4()
 
       const payload = {
-        ...item, id: id,
+        ...item,
+        id: id,
+
+        style: {
+          // Default padding
+          "padding": 0,
+
+          // Default Margin
+          "margin": 0,
+
+          // Default border
+          "border": 0,
+
+          // Default border radius
+          "borderRadius": 0,
+        }
       }
 
       switch (item.type) {
         case TextType:
-          payload.style = {}
           payload.data = "Add some text..."
           break;
         case TwoDroppableColumns:
@@ -59,6 +73,7 @@ const DroppableSection = ({runningIndex, between}) => {
           break;
         case ImageType:
           payload.style = {
+            ...payload.style,
             height: "200px"
           }
           payload.data = null
@@ -114,9 +129,7 @@ export default DroppableSection;
 
 const textTypePreviewJSX = (
   <p className={"text-type-preview"}>
-    Lorem ipsum dolor sit amet, consectetur adipisicing
-    elit. Ab autem, beatae dolor doloribus error
-    fuga fugit incidunt libero maiores officia quis.
+    Lorem ipsum dolor sit amet.
   </p>
 )
 

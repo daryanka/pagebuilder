@@ -3,8 +3,9 @@ import React from "react";
 const TextInput = ({label,...props}) => {
   return(
     <>
-      {props.label && <p className={"label"}>{props.label}</p>}
+      {props.label && props.label}
       <input
+        type={props.type ? props.type : "text"}
         {...props}
       />
     </>
