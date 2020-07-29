@@ -93,6 +93,7 @@ body.resizing {
 .two-col-preview {
   display: flex;
   height: 100%;
+  min-height: 40px;
   width: 100%;
   .box {
     width: 100%;
@@ -106,6 +107,7 @@ body.resizing {
 .three-col-preview {
   display: flex;
   height: 100%;
+  min-height: 40px;
   width: 100%;
   .box {
     width: 100%;
