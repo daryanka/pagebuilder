@@ -26,6 +26,7 @@ const DetailsPanel = () => {
   const [selected, setSelected] = useState()
   const [state, dispatch] = useContext(DropDataContext)
 
+  // Get data from state
   React.useEffect(() => {
     const result = getSelectedObj(state.data, state.selected.id)
     setSelected({...result})
@@ -40,7 +41,7 @@ const DetailsPanel = () => {
         }
       })
     }
-  }, [state.selected])
+  }, [state.selected, state.selected.update])
 
   const handleChangeStyle = (e) => {
     e.persist()
@@ -67,7 +68,6 @@ const DetailsPanel = () => {
   }
 
   const handleTextDataChange = (data) => {
-    console.log("original data", data)
     setSelected(prev => ({
       ...prev,
       data: DomPurify.sanitize(data)
@@ -97,6 +97,7 @@ const DetailsPanel = () => {
               <div>
                 <Editor
                   initialValue={selected.data}
+                  value={selected.data}
                   init={{
                     height: 500,
                     menubar: false,

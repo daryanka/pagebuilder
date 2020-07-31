@@ -133,7 +133,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         selected: {
-          id: action.payload
+          id: action.payload,
+          update: state.selected.update ? state.selected.update + 1 : 1
         }
       }
     case SET_DRAGGING:
@@ -179,7 +180,6 @@ export const DropDataProvider = (props) => {
     ],
     isDragging: false,
     selected: {
-      runningIndex: []
     }
   })
 

@@ -51,7 +51,6 @@ function App() {
   }, [])
 
   const handleMouseUp = useCallback(() => {
-    console.log("mouse up")
     window.removeEventListener('mousemove', handleMouseMove)
     document.body.classList.remove("resizing")
   }, [])
