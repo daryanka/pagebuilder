@@ -2,11 +2,12 @@ import React from "react";
 
 const TextSection = (props) => {
   return (
-    <p
+    <div
       style={props.style ? props.style : {}}
-    >
-      {props.data}
-    </p>
+      dangerouslySetInnerHTML={{
+        __html: props.data
+      }}
+    />
   )
 }
 

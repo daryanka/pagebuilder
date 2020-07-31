@@ -1,9 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 body.resizing {
   cursor: col-resize;
 }
@@ -26,6 +20,16 @@ input[disabled] {
 }
 
 .App {
+  // Reset
+
+  .left-panel, .right-panel {
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  }
+
   display: flex;
   min-height: 100vh;
   .left-panel {
@@ -51,8 +55,8 @@ input[disabled] {
   .right-panel {
     position: relative;
     min-height: 100%;
-    width: 300px;
-    min-width: 300px;
+    width: 400px;
+    min-width: 400px;
     max-width: 50%;
     background: #bcbcbc;
 
@@ -61,7 +65,7 @@ input[disabled] {
       height: 100%;
       width: 10px;
       &:hover {
-        cursor: col-resize;
+        //cursor: col-resize;
       }
     }
 
@@ -77,13 +81,14 @@ input[disabled] {
 
     .options {
       width: 100%;
-      padding: 0 10px;
+      padding: 0 15px;
       display: flex;
       flex-direction: column;
       margin-top: 20px;
 
       .group {
         margin-bottom: 15px;
+        overflow: hidden;
 
         .heading {
           font-size: 22px;
@@ -97,6 +102,17 @@ input[disabled] {
           display: grid;
           grid-template-columns: 3fr 4fr;
           margin-bottom: 5px;
+        }
+
+        // Text editor
+
+        .se-btn-tray {
+          div:nth-child(1) {
+            display: none;
+          }
+          div:last-child {
+            display: non;
+          }
         }
 
         .styling-4 {

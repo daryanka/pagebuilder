@@ -50,23 +50,24 @@ function App() {
     document.body.classList.add("resizing")
   }, [])
 
+  const handleMouseUp = useCallback(() => {
+    console.log("mouse up")
+    window.removeEventListener('mousemove', handleMouseMove)
+    document.body.classList.remove("resizing")
+  }, [])
+
   React.useEffect(() => {
-    const handleMouseDown = (e) => {
-      e.preventDefault()
-      // Listen to mouse moving
-      window.addEventListener("mousemove", handleMouseMove)
-
-      // Listen to when mouse click ends to remove previous event handler
-      window.addEventListener("mouseup", handleMouseUp)
-    }
-
-    const handleMouseUp = () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      document.body.classList.remove("resizing")
-    }
-
-    detailsHandleRef.current.addEventListener("mousedown", handleMouseDown)
-    return () => detailsHandleRef.current.removeEventListener("mousedown", handleMouseDown)
+    // const handleMouseDown = (e) => {
+    //   e.preventDefault()
+    //   // Listen to mouse moving
+    //   window.addEventListener("mousemove", handleMouseMove, false)
+    //
+    //   // Listen to when mouse click ends to remove previous event handler
+    //   window.addEventListener("mouseup", handleMouseUp, false)
+    // }
+    //
+    // detailsHandleRef.current.addEventListener("mousedown", handleMouseDown)
+    // return () => detailsHandleRef.current.removeEventListener("mousedown", handleMouseDown)
   }, [])
 
   return (

@@ -1,7 +1,6 @@
 import React, {useCallback, useState, useContext, useRef} from "react";
 import {DropDataContext, SET_SELECTED, UPDATE_SECTION} from "../../DropContext";
 import {useDropzone} from 'react-dropzone'
-import ReactFitText from "react-fittext";
 
 const ImageSection = (props) => {
   const [state, dispatch] = useContext(DropDataContext)

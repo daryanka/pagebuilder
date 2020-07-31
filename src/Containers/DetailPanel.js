@@ -1,11 +1,11 @@
 import React, {useContext, useRef, useState} from "react";
 import {DropDataContext, getSelectedObj, UPDATE_SECTION} from "../DropContext";
-import _ from "lodash";
 import {ImageType, TextType} from "../CardTypes";
 import TextInput from "../Components/DetailComponents/TextInput";
-import TextArea from "../Components/DetailComponents/TextArea";
 import AllPaddings from "../Images/padding-all.png";
-import IndividualPaddings from "../Images/padding-individual.png"
+import IndividualPaddings from "../Images/padding-individual.png";
+import { Editor } from '@tinymce/tinymce-react';
+import DomPurify from "dompurify";
 
 const DetailsPanel = () => {
   const [open, setOpen] = useState({
@@ -15,6 +15,7 @@ const DetailsPanel = () => {
     borderRadius: false
   })
 
+  // Set if padding, margin, border or border radius should be all in one or change individually
   const [multiple, setMultiple] = useState({
     margin: false,
     padding: false,
@@ -32,8 +33,6 @@ const DetailsPanel = () => {
     const types = ["margin", "padding", "border"];
     if (result) {
       types.forEach(el => {
-        console.log("type", el)
-        console.log("type-result", result.style[el])
         if (result.style[el]) {
           setMultiple((prev) => ({...prev, [el]: false}))
         } else {
@@ -67,11 +66,11 @@ const DetailsPanel = () => {
     }))
   }
 
-  const handleDataChange = (e) => {
-    e.persist()
+  const handleTextDataChange = (data) => {
+    console.log("original data", data)
     setSelected(prev => ({
       ...prev,
-      data: e.target.value
+      data: DomPurify.sanitize(data)
     }))
   }
 
@@ -86,7 +85,6 @@ const DetailsPanel = () => {
     }
   }, [selected])
 
-
   const renderOptions = () => {
     switch (selected.type) {
       case TextType:
@@ -96,12 +94,26 @@ const DetailsPanel = () => {
               <h4 className="heading">
                 Text
               </h4>
-              <div className="styling">
-                <p>Text</p>
-                <TextArea
-                  name={"data"}
-                  onChange={handleDataChange}
-                  value={selected.data}
+              <div>
+                <Editor
+                  initialValue={selected.data}
+                  init={{
+                    height: 500,
+                    menubar: false,
+                    plugins: [
+                      'advlist autolink lists link charmap print preview anchor',
+                      'searchreplace visualblocks code fullscreen',
+                      'insertdatetime table paste code help wordcount'
+                    ],
+                    toolbar:
+                      'fullscreen | formatselect | bold italic backcolor | \
+                      alignleft aligncenter alignright alignjustify | \
+                      bullist numlist outdent indent | removeformat | help'
+                  }}
+                  onEditorChange={handleTextDataChange}
+                  setOptions={{
+                    plugins: []
+                  }}
                 />
               </div>
             </div>
@@ -162,8 +174,6 @@ const DetailsPanel = () => {
   }
 
   const SizingJSX = () => {
-    console.log("parsed value = ", parseInt(selected.style.padding))
-    console.log("normal value = ", selected.style.padding)
     return(
       (
         <div className={"group"}>
