@@ -54,6 +54,10 @@ const TextSection = (props) => {
             alignleft aligncenter alignright alignjustify | \
             bullist numlist outdent indent | removeformat | help'
         }}
+        onClick={() => dispatch({
+          type: SET_SELECTED,
+          payload: props.id
+        })}
         onEditorChange={handleTextDataChange}
         setOptions={{
           plugins: []

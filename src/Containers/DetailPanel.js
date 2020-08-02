@@ -44,9 +44,12 @@ const DetailsPanel = () => {
     let val = e.target.value
 
     if (e.target.name.includes("padding") || e.target.name.includes("margin") || e.target.name.includes("border")) {
-      val = `${e.target.value}px`
+      if (e.target.name !== "borderStyle") {
+        val = `${e.target.value}px`
+      }
     }
 
+    console.log("here")
     setSelected(prev => ({
       ...prev,
       style: {
@@ -58,8 +61,6 @@ const DetailsPanel = () => {
 
   const handleBorderColor = (val) => {
     const rgba = `rgba(${val.rgb.r},${val.rgb.g},${val.rgb.b},${val.rgb.a})`
-
-    console.log(rgba)
 
     setSelected(prev => ({
       ...prev,
@@ -168,10 +169,6 @@ const DetailsPanel = () => {
   const handleMultipleSwitch = (type, multiple) => {
     setMultiple(prev => ({...prev, [type]: multiple}))
 
-    if (type === "borderRadius") {
-      return
-    }
-
     setSelected(prev => {
       const returnObj = {
         ...prev,
@@ -192,6 +189,24 @@ const DetailsPanel = () => {
           delete returnObj.style[`borderBottomWidth`]
           delete returnObj.style[`borderLeftWidth`]
           delete returnObj.style[`borderRightWidth`]
+
+          returnObj.style[`${type}`] = "0px"
+        }
+        return returnObj
+      }
+
+      if (type === "borderRadius") {
+        if (multiple) {
+          delete returnObj.style[type]
+          returnObj.style[`borderTopRightRadius`] = `0px`
+          returnObj.style[`borderTopLeftRadius`] = `0px`
+          returnObj.style[`borderBottomRightRadius`] = `0px`
+          returnObj.style[`borderBottomLeftRadius`] = `0px`
+        } else {
+          delete returnObj.style[`borderTopRightRadius`]
+          delete returnObj.style[`borderTopLeftRadius`]
+          delete returnObj.style[`borderBottomRightRadius`]
+          delete returnObj.style[`borderBottomLeftRadius`]
 
           returnObj.style[`${type}`] = "0px"
         }
@@ -224,6 +239,35 @@ const DetailsPanel = () => {
           </h4>
           {/* Padding*/}
           <div className={"styling-4"}>
+            <div className="box">
+              <p className="p">
+                Width
+              </p>
+              <div className={"input-wrap"}>
+                <TextInput
+                  type="text"
+                  name={"width"}
+                  value={selected.style.width}
+                  placeholder={"100px"}
+                  onChange={handleChangeStyle}
+                />
+              </div>
+            </div>
+            <div className="box">
+              <p className="p">
+                Height
+              </p>
+              <div className={"input-wrap"}>
+                <TextInput
+                  type="text"
+                  name={"height"}
+                  value={selected.style.height}
+                  placeholder={"100px"}
+                  onChange={handleChangeStyle}
+                />
+              </div>
+            </div>
+
             <div className={"box"}>
               <p className={"p"}>Padding:</p>
               <div className={"four-div"}>
@@ -335,6 +379,19 @@ const DetailsPanel = () => {
         </div>
         <div className={"styling-4"}>
           <div className={"box"}>
+            <p className={"p"}>
+              Border Style:
+            </p>
+            <div className="select">
+              <select name="borderStyle" onChange={handleChangeStyle}>
+                <option value="solid">Solid</option>
+                <option value="dotted">Dotted</option>
+                <option value="dashed">Dashed</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+          </div>
+          <div className={"box"}>
             <p className={"p"}>Border:</p>
             <div className={"four-div"}>
               <div className={"all-style"}>
@@ -365,6 +422,45 @@ const DetailsPanel = () => {
                         name={`border${el}Width`}
                         type={"number"}
                         value={parseInt(selected.style[`border${el}Width`]) ? parseInt(selected.style[`border${el}Width`]) : 0}
+                        onChange={handleChangeStyle}
+                      />
+                      <p className={"px"}>px</p>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          )}
+          <div className={"box"}>
+            <p className={"p"}>Border Radius:</p>
+            <div className={"four-div"}>
+              <div className={"all-style"}>
+                <TextInput
+                  name={"borderRadius"}
+                  value={parseInt(selected.style.borderRadius) ? parseInt(selected.style.borderRadius) : 0}
+                  disabled={multiple.borderRadius}
+                  onChange={handleChangeStyle}
+                  type={"number"}
+                />
+                <p className={"px"}>px</p>
+              </div>
+              <div className={"settings"}>
+                <img onClick={() => handleMultipleSwitch("borderRadius", false)} src={AllPaddings} alt="all-paddings"/>
+                <img onClick={() => handleMultipleSwitch("borderRadius", true)} src={IndividualPaddings} alt="individual-paddings"/>
+              </div>
+            </div>
+          </div>
+          {multiple.borderRadius && (
+            <div className={"multiple"}>
+              {["TopRight", "TopLeft", "BottomLeft", "BottomRight"].map(el => {
+                return (
+                  <div key={`border-${el}`} className={"all-style"}>
+                    <p className="label">{el}</p>
+                    <div className={"with-px"}>
+                      <TextInput
+                        name={`border${el}Radius`}
+                        type={"number"}
+                        value={parseInt(selected.style[`border${el}Radius`]) ? parseInt(selected.style[`border${el}Radius`]) : 0}
                         onChange={handleChangeStyle}
                       />
                       <p className={"px"}>px</p>

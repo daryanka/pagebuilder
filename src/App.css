@@ -2,7 +2,7 @@ p {
   margin: 0;
 }
 
-input {
+input, select {
   width: 100%;
   height: 30px;
   padding: 5px;
@@ -120,6 +120,19 @@ input[disabled] {
 .App .right-panel .options .group .styling-4 .box {
   margin-bottom: 10px;
   display: flex;
+}
+.App .right-panel .options .group .styling-4 .box .select {
+  margin-left: auto;
+}
+.App .right-panel .options .group .styling-4 .box .select select {
+  width: 80px;
+}
+.App .right-panel .options .group .styling-4 .input-wrap {
+  margin-left: auto;
+  width: 80px;
+}
+.App .right-panel .options .group .styling-4 .input-wrap input {
+  padding-left: 10px;
 }
 .App .right-panel .options .group .styling-4 .p {
   width: calc(3 / 7 * 100%);
