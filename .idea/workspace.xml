@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/DroppableSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DroppableSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Sections/TextSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Sections/TextSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/DetailPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/DetailPanel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DropContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DropContext.js" afterDir="false" />
@@ -61,7 +67,8 @@
       <workItem from="1595869232461" duration="9247000" />
       <workItem from="1595942072059" duration="12556000" />
       <workItem from="1596041278604" duration="14390000" />
-      <workItem from="1596149706766" duration="8852000" />
+      <workItem from="1596149706766" duration="8871000" />
+      <workItem from="1596292597902" duration="11192000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
       <created>1595707981929</created>
@@ -133,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596159170893</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="disabled adjustable details bar, added tiny mce to both section and details panel">
+      <created>1596160785906</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1596160785906</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,17 +205,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595978947568" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1596152218993">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1596292597865">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1596152218993" />
-    <state x="306" y="175" width="607" height="536" key="find.popup" timestamp="1596160495959">
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1596292597865" />
+    <state x="347" y="385" width="607" height="479" key="find.popup" timestamp="1596333795295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="306" y="175" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1596160495959" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1596159926212">
+    <state x="347" y="385" width="607" height="479" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1596333795295" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1596328375275">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1596159926212" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1596328375275" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1596329757546">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1596329757546" />
   </component>
 </project>

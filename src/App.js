@@ -56,6 +56,7 @@ function App() {
   }, [])
 
   React.useEffect(() => {
+    // TODO fix adjustable width event listener issue
     // const handleMouseDown = (e) => {
     //   e.preventDefault()
     //   // Listen to mouse moving
@@ -71,7 +72,6 @@ function App() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div id={"empty"}/>
       <CustomDragLayer/>
       <div className="App">
         <div className={"left-panel"}>

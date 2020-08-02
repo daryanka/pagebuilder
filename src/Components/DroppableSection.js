@@ -35,10 +35,18 @@ const DroppableSection = ({runningIndex, between}) => {
           "margin": "0px",
 
           // Default border
-          "border": "0px",
+          "borderWidth": "0px",
+          "borderColor": "#000000",
+          "borderStyle": "solid",
 
           // Default border radius
           "borderRadius": "0px",
+        },
+
+        // Hold border color for component
+
+        border: {
+          color: "#000000"
         }
       }
 

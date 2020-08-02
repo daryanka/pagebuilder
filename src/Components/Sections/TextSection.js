@@ -34,28 +34,32 @@ const TextSection = (props) => {
   }
 
   return (
-    <Editor
-      inline
-      initialValue={props.data}
-      value={props.data}
-      init={{
-        height: 500,
-        menubar: false,
-        plugins: [
-          'advlist autolink lists link charmap print preview anchor',
-          'searchreplace visualblocks code fullscreen',
-          'insertdatetime table paste code help wordcount'
-        ],
-        toolbar:
-          'fullscreen | formatselect | bold italic backcolor | \
-          alignleft aligncenter alignright alignjustify | \
-          bullist numlist outdent indent | removeformat | help'
-      }}
-      onEditorChange={handleTextDataChange}
-      setOptions={{
-        plugins: []
-      }}
-    />
+    <div
+      style={props.style ? props.style : {}}
+    >
+      <Editor
+        inline
+        initialValue={props.data}
+        value={props.data}
+        init={{
+          height: 500,
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime table paste code help wordcount'
+          ],
+          toolbar:
+            'fullscreen | formatselect | bold italic backcolor | \
+            alignleft aligncenter alignright alignjustify | \
+            bullist numlist outdent indent | removeformat | help'
+        }}
+        onEditorChange={handleTextDataChange}
+        setOptions={{
+          plugins: []
+        }}
+      />
+    </div>
   )
 
 }

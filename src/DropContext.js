@@ -27,12 +27,18 @@ export const getSelectedObj = (data, id) => {
   return null
 }
 
-const updateInBetweens = (data) => {
-  const between = {
-    type: DroppableArea,
-    between: true
+const deleteByID = (data, id) => {
+  for (let i = 0; i < data.length; i++) {
+    const curr = data[i]
+    if (curr.id === id) {
+      data.splice(i, 1)
+    } else if (curr.children) {
+      deleteByID(curr.children, id)
+    }
   }
+}
 
+const updateInBetweens = (data) => {
   for (let i = 0; i < data.length; i++) {
     const curr = data[i]
     // if current element is droppable area then skip
@@ -97,6 +103,15 @@ const reducer = (state, action) => {
   const {runningIndex, payload, id} = action
 
   switch (action.type) {
+    case DELETE_SECTION:
+      const newStateCopy = _.cloneDeep(state.data);
+
+      deleteByID(newStateCopy, id)
+
+      return {
+        ...state,
+        data: newStateCopy
+      };
     case UPDATE_SECTION:
       // Get running index by id
 
