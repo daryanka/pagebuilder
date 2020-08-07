@@ -1,0 +1,33 @@
+$inputBG: #faf7f3;
+$disabledColor: #a8a6a3;
+
+p {
+  margin: 0;
+}
+
+input, select {
+  width: 100%;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  background-color: $inputBG;
+  border: 1px solid gray;
+}
+
+input[disabled] {
+  background-color: $disabledColor;
+}
+
+.App {
+  .left-panel, .right-panel {
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+  }
+
+  display: flex;
+  min-height: 100vh;
+}

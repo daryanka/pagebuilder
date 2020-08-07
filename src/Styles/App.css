@@ -25,26 +25,44 @@ input[disabled] {
   margin: 0;
   box-sizing: border-box;
 }
-.App .left-panel {
+
+.left-panel {
   min-width: 300px;
   background: #dcd9d5;
   height: 100vh;
   max-height: 100vh;
   overflow-y: auto;
 }
-.App .left-panel h1 {
+.left-panel h1 {
   margin-top: 20px;
   text-align: center;
 }
-.App .center-panel {
+.left-panel .components-list {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.left-panel .components-list .card {
+  display: flex;
+  justify-content: center;
+}
+.left-panel .components-list .card p {
+  font-size: 20px;
+}
+.left-panel .components-list .card p:hover {
+  cursor: grab;
+}
+
+.center-panel {
   min-height: 100%;
   flex: 1;
 }
-.App .center-panel .title {
+.center-panel .title {
   margin: 20px 0;
   text-align: center;
 }
-.App .right-panel {
+
+.right-panel {
   overflow: auto;
   height: 100vh;
   max-height: 100vh;
@@ -53,43 +71,43 @@ input[disabled] {
   max-width: 50%;
   background: #bcbcbc;
 }
-.App .right-panel h1 {
+.right-panel h1 {
   margin-top: 20px;
   text-align: center;
 }
-.App .right-panel h3 {
+.right-panel h3 {
   text-align: center;
   font-style: italic;
 }
-.App .right-panel .options {
+.right-panel .options {
   width: 100%;
   padding: 0 15px;
   display: flex;
   flex-direction: column;
   margin-top: 20px;
 }
-.App .right-panel .options .group {
+.right-panel .options .group {
   margin-bottom: 15px;
 }
-.App .right-panel .options .group .heading {
+.right-panel .options .group .heading {
   font-size: 22px;
   font-style: italic;
   padding-bottom: 5px;
   border-bottom: 1px solid black;
   margin-bottom: 10px;
 }
-.App .right-panel .options .group .styling {
+.right-panel .options .group .styling {
   display: grid;
   grid-template-columns: 3fr 4fr;
   margin-bottom: 5px;
 }
-.App .right-panel .options .group .border-col {
+.right-panel .options .group .border-col {
   position: relative;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
-.App .right-panel .options .group .border-col .cover {
+.right-panel .options .group .border-col .cover {
   position: fixed;
   top: 0;
   left: 0;
@@ -97,63 +115,63 @@ input[disabled] {
   bottom: 0;
   background-color: transparent;
 }
-.App .right-panel .options .group .border-col .picker-pos {
+.right-panel .options .group .border-col .picker-pos {
   position: absolute;
   top: -240px;
   right: 0;
 }
-.App .right-panel .options .group .border-col .picker-pos * {
+.right-panel .options .group .border-col .picker-pos * {
   z-index: 10000;
 }
-.App .right-panel .options .group .border-col .border {
+.right-panel .options .group .border-col .border {
   background-color: white;
   height: 30px;
   width: 80px;
 }
-.App .right-panel .options .group .border-col .border:hover {
+.right-panel .options .group .border-col .border:hover {
   cursor: pointer;
 }
-.App .right-panel .options .group .styling-4 {
+.right-panel .options .group .styling-4 {
   width: 100%;
   margin-bottom: 5px;
 }
-.App .right-panel .options .group .styling-4 .box {
+.right-panel .options .group .styling-4 .box {
   margin-bottom: 10px;
   display: flex;
 }
-.App .right-panel .options .group .styling-4 .box .select {
+.right-panel .options .group .styling-4 .box .select {
   margin-left: auto;
 }
-.App .right-panel .options .group .styling-4 .box .select select {
+.right-panel .options .group .styling-4 .box .select select {
   width: 80px;
 }
-.App .right-panel .options .group .styling-4 .input-wrap {
+.right-panel .options .group .styling-4 .input-wrap {
   margin-left: auto;
   width: 80px;
 }
-.App .right-panel .options .group .styling-4 .input-wrap input {
+.right-panel .options .group .styling-4 .input-wrap input {
   padding-left: 10px;
 }
-.App .right-panel .options .group .styling-4 .p {
+.right-panel .options .group .styling-4 .p {
   width: calc(3 / 7 * 100%);
   line-height: 30px;
 }
-.App .right-panel .options .group .styling-4 .all-style {
+.right-panel .options .group .styling-4 .all-style {
   display: flex;
   margin-left: auto;
   width: 60px;
   position: relative;
 }
-.App .right-panel .options .group .styling-4 .all-style input {
+.right-panel .options .group .styling-4 .all-style input {
   border-right: 0;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   padding-right: 0;
 }
-.App .right-panel .options .group .styling-4 .all-style input[disabled] ~ .px {
+.right-panel .options .group .styling-4 .all-style input[disabled] ~ .px {
   background: #a8a6a3;
 }
-.App .right-panel .options .group .styling-4 .all-style .px {
+.right-panel .options .group .styling-4 .all-style .px {
   background-color: #faf7f3;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -161,18 +179,18 @@ input[disabled] {
   border-left: none;
   padding-right: 5px;
 }
-.App .right-panel .options .group .styling-4 .four-div {
+.right-panel .options .group .styling-4 .four-div {
   width: calc(4 / 7 * 100%);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.App .right-panel .options .group .styling-4 .four-div .settings {
+.right-panel .options .group .styling-4 .four-div .settings {
   display: flex;
   justify-content: space-around;
   width: 80px;
 }
-.App .right-panel .options .group .styling-4 .four-div .settings img {
+.right-panel .options .group .styling-4 .four-div .settings img {
   cursor: pointer;
   padding: 5px;
   border-radius: 10px;
@@ -180,38 +198,23 @@ input[disabled] {
   width: 30px;
   height: 30px;
 }
-.App .right-panel .options .group .styling-4 .multiple {
+.right-panel .options .group .styling-4 .multiple {
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
-.App .right-panel .options .group .styling-4 .multiple .label {
+.right-panel .options .group .styling-4 .multiple .label {
   text-transform: capitalize;
   margin-bottom: 5px;
 }
-.App .right-panel .options .group .styling-4 .multiple .all-style {
+.right-panel .options .group .styling-4 .multiple .all-style {
   text-align: center;
   display: flex;
   flex-direction: column;
   margin: 0;
 }
-.App .right-panel .options .group .styling-4 .multiple .all-style .with-px {
+.right-panel .options .group .styling-4 .multiple .all-style .with-px {
   display: flex;
-}
-.App .components-list {
-  display: flex;
-  flex-direction: column;
-  margin: 20px 0;
-}
-.App .components-list .card {
-  display: flex;
-  justify-content: center;
-}
-.App .components-list .card p {
-  font-size: 20px;
-}
-.App .components-list .card p:hover {
-  cursor: grab;
 }
 
 .two-col-preview {

@@ -1,5 +1,5 @@
 import React, {useContext, useRef, useCallback} from "react";
-import "./App.css";
+import "./Styles/App.css";
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
 import Card from "./Components/Cards/Card";
@@ -19,72 +19,21 @@ import SectionWrapper from "./Components/Sections/SectionWrapper";
 import DetailsPanel from "./Containers/DetailPanel";
 import TextSection from "./Components/Sections/TextSection";
 import ImageSection from "./Components/Sections/ImageSection";
+import LeftPanel from "./Containers/LeftPanel/LeftPanel";
 
-const CardList = [
-  {
-    type: TwoDroppableColumns,
-    name: "Two Columns",
-  },
-  {
-    type: ThreeDroppableColumns,
-    name: "Three Columns",
-  },
-  {
-    type: TextType,
-    name: "Text",
-  },
-  {
-    type: ImageType,
-    name: "Image",
-  },
-];
+
 
 function App() {
   const detailsHandleRef = useRef();
   const detailsRef = useRef();
 
   const [state] = useContext(DropDataContext)
-  const handleMouseMove = useCallback((e) => {
-    const size = window.innerWidth - e.x;
-    detailsRef.current.style.width = `${size}px`
-    document.body.classList.add("resizing")
-  }, [])
-
-  const handleMouseUp = useCallback(() => {
-    window.removeEventListener('mousemove', handleMouseMove)
-    document.body.classList.remove("resizing")
-  }, [])
-
-  React.useEffect(() => {
-    // TODO fix adjustable width event listener issue
-    // const handleMouseDown = (e) => {
-    //   e.preventDefault()
-    //   // Listen to mouse moving
-    //   window.addEventListener("mousemove", handleMouseMove, false)
-    //
-    //   // Listen to when mouse click ends to remove previous event handler
-    //   window.addEventListener("mouseup", handleMouseUp, false)
-    // }
-    //
-    // detailsHandleRef.current.addEventListener("mousedown", handleMouseDown)
-    // return () => detailsHandleRef.current.removeEventListener("mousedown", handleMouseDown)
-  }, [])
 
   return (
     <DndProvider backend={HTML5Backend}>
       <CustomDragLayer/>
       <div className="App">
-        <div className={"left-panel"}>
-          <h1>Components</h1>
-          <div className={"components-list"}>
-            {CardList.map((el, i) => (
-              <Card
-                key={el.type}
-                {...el}
-              />
-            ))}
-          </div>
-        </div>
+        <LeftPanel/>
 
         <div className={"center-panel"}>
           <h1 className={"title"}>Preview</h1>
