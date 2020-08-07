@@ -1,0 +1,10 @@
+.center-panel {
+  min-height: 100%;
+  flex: 1;
+}
+.center-panel .title {
+  margin: 20px 0;
+  text-align: center;
+}
+
+/*# sourceMappingURL=center-panel.css.map */
