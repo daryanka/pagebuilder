@@ -1,5 +1,6 @@
 $inputBG: #faf7f3;
 $disabledColor: #a8a6a3;
+$lightGray: rgba(#252525, 0.5);
 
 p {
   margin: 0;
@@ -19,15 +20,27 @@ input[disabled] {
   background-color: $disabledColor;
 }
 
-.App {
-  .left-panel, .right-panel {
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-    }
+.left-panel, .right-panel {
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+.App {
   display: flex;
   min-height: 100vh;
 }

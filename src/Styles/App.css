@@ -16,40 +16,77 @@ input[disabled] {
   background-color: #a8a6a3;
 }
 
-.App {
-  display: flex;
-  min-height: 100vh;
-}
-.App .left-panel *, .App .right-panel * {
+.left-panel *, .right-panel * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+.left-panel h1, .right-panel h1 {
+  font-size: 28px;
+}
+.left-panel h2, .right-panel h2 {
+  font-size: 24px;
+}
+.left-panel h3, .right-panel h3 {
+  font-size: 20px;
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+}
 
 .left-panel {
   min-width: 300px;
+  width: 300px;
   background: #dcd9d5;
   height: 100vh;
   max-height: 100vh;
   overflow-y: auto;
+  display: flex;
 }
-.left-panel h1 {
-  margin-top: 20px;
+.left-panel .left-side {
+  border-right: 1px solid rgba(37, 37, 37, 0.5);
+  width: 100px;
+}
+.left-panel .left-side .item {
+  padding: 13px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(37, 37, 37, 0.5);
+}
+.left-panel .left-side .item:hover {
+  cursor: pointer;
+}
+.left-panel .left-side .item svg {
+  height: 30px;
+  width: 30px;
+}
+.left-panel .left-side .item p {
+  margin-top: 10px;
+}
+.left-panel .component-list-wrapper {
+  padding-top: 20px;
+  flex: 1;
+}
+.left-panel .component-list-wrapper h2 {
   text-align: center;
 }
-.left-panel .components-list {
+.left-panel .component-list-wrapper .components-list {
   display: flex;
   flex-direction: column;
   margin: 20px 0;
 }
-.left-panel .components-list .card {
+.left-panel .component-list-wrapper .components-list .card {
   display: flex;
   justify-content: center;
 }
-.left-panel .components-list .card p {
+.left-panel .component-list-wrapper .components-list .card p {
   font-size: 20px;
 }
-.left-panel .components-list .card p:hover {
+.left-panel .component-list-wrapper .components-list .card p:hover {
   cursor: grab;
 }
 
@@ -59,6 +96,7 @@ input[disabled] {
 }
 .center-panel .title {
   margin: 20px 0;
+  font-size: 28px;
   text-align: center;
 }
 
