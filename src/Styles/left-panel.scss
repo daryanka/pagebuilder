@@ -11,16 +11,25 @@
     border-right: 1px solid $lightGray;
     width: 100px;
 
+    .divider {
+      height: 1px;
+      width: 100%;
+      background: $lightGray;
+    }
+
     .item {
+      transform: scale(0.9);
       padding: 13px 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      border-bottom: 1px solid $lightGray;
+      //border-bottom: 1px solid $lightGray;
+      transition: ease all 0.2s;
 
       &:hover {
         cursor: pointer;
+        transform: scale(1);
       }
 
       svg {
@@ -37,6 +46,7 @@
   .component-list-wrapper {
     padding-top: 20px;
     flex: 1;
+    overflow: auto;
 
     h2 {
       text-align: center;
@@ -56,6 +66,14 @@
             cursor: grab;
           }
         }
+      }
+    }
+
+    .tree-wrapper {
+      .tree-item {
+        width: 100%;
+        word-break: keep-all;
+        border-bottom: 1px solid $lightGray;
       }
     }
   }

@@ -261,7 +261,7 @@ const DetailsPanel = () => {
                 <TextInput
                   type="text"
                   name={"height"}
-                  value={selected.style.height}
+                  value={selected.style.height ? selected.style.height : ""}
                   placeholder={"100px"}
                   onChange={handleChangeStyle}
                 />

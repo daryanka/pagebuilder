@@ -43,11 +43,13 @@ const DroppableSection = ({runningIndex, between}) => {
           "borderRadius": "0px",
         },
 
-        // Hold border color for component
-
+        // Border color, for color picker
         border: {
           color: "#000000"
-        }
+        },
+
+        // Left panel tree, open state, closed by initially
+        openInTree: false
       }
 
       switch (item.type) {
@@ -82,7 +84,7 @@ const DroppableSection = ({runningIndex, between}) => {
         case ImageType:
           payload.style = {
             ...payload.style,
-            height: "200px"
+            height: "100px"
           }
           payload.data = null
           break;
