@@ -1,7 +1,8 @@
 import React, {useContext} from "react";
+import Highlight from "react-highlight.js";
 import {CHANGE_TYPE, DropDataContext, SET_SELECTED} from "../DropContext";
 import {useDrop} from "react-dnd";
-import {TextType, TwoDroppableColumns, ThreeDroppableColumns, DroppableArea, ImageType} from "../CardTypes";
+import {TextType, TwoDroppableColumns, ThreeDroppableColumns, DroppableArea, ImageType, CodeType} from "../CardTypes";
 import {v4} from "uuid";
 import ImageTypeBackground from "../Images/placeholder-img.jpg";
 
@@ -13,7 +14,8 @@ const DroppableSection = ({runningIndex, between}) => {
       TwoDroppableColumns,
       ThreeDroppableColumns,
       DroppableArea,
-      ImageType
+      ImageType,
+      CodeType
     ],
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
@@ -59,10 +61,12 @@ const DroppableSection = ({runningIndex, between}) => {
         case TwoDroppableColumns:
           payload.children = [
             {
-              type: DroppableArea
+              type: DroppableArea,
+              id: v4()
             },
             {
-              type: DroppableArea
+              type: DroppableArea,
+              id: v4()
             }
           ]
           payload.wrapperClassName = "droppable-col-2"
@@ -70,13 +74,16 @@ const DroppableSection = ({runningIndex, between}) => {
         case ThreeDroppableColumns:
           payload.children = [
             {
-              type: DroppableArea
+              type: DroppableArea,
+              id: v4()
             },
             {
-              type: DroppableArea
+              type: DroppableArea,
+              id: v4()
             },
             {
-              type: DroppableArea
+              type: DroppableArea,
+              id: v4()
             }
           ]
           payload.wrapperClassName = "droppable-col-3"
@@ -87,6 +94,10 @@ const DroppableSection = ({runningIndex, between}) => {
             height: "100px"
           }
           payload.data = null
+          break;
+        case CodeType:
+          payload.language = "javascript"
+          payload.data = `console.log("hello world")`
           break;
         default:
           break;
@@ -116,6 +127,8 @@ const DroppableSection = ({runningIndex, between}) => {
           return threeColTypePreviewJSX
         case ImageType:
           return imageTypePreviewJSX
+        case CodeType:
+          return codeTypePreviewJSX
         default:
           return null
       }
@@ -161,5 +174,18 @@ const threeColTypePreviewJSX = (
 const imageTypePreviewJSX = (
   <div className={"image-type-preview"}>
     <img src={ImageTypeBackground} alt="Image"/>
+  </div>
+)
+
+const codePreviewContent = `function PrintName(name) {
+  console.log(name)
+}
+`
+
+const codeTypePreviewJSX = (
+  <div className={"code-type-preview-jsx"}>
+    <Highlight language={"javascript"}>
+      {codePreviewContent}
+    </Highlight>
   </div>
 )

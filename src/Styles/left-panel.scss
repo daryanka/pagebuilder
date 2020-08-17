@@ -70,7 +70,11 @@
     }
 
     .tree-wrapper {
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
       .tree-item {
+        box-sizing: content-box;
         width: 100%;
         word-break: keep-all;
         border-bottom: 1px solid $lightGray;

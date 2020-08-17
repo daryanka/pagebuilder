@@ -23,28 +23,7 @@ const nameFromType = (t) => {
 const Tree = (props) => {
   const [state, dispatch] = useContext(DropDataContext)
 
-  console.log(state)
-
-  return (
-    <>
-      <h2>Sections</h2>
-      <div className={"tree-wrapper"}>
-        {/* Render Sections Tree Recursive */}
-        {state.data.map(el => RenderTreeItems(el, 0))}
-      </div>
-    </>
-  )
-}
-
-const RenderTreeItems = (data, nestedIndex) => {
-  const [state, dispatch] = useContext(DropDataContext)
-
-  // Note dont render between
-  if (data.between) {
-    return
-  }
-
-  const handleClick = () => {
+  const handleClick = (data) => {
     // Set Selected and toggle openInTree
     dispatch({
       type: SET_SELECTED,
@@ -62,12 +41,29 @@ const RenderTreeItems = (data, nestedIndex) => {
   }
 
   return (
-    <div className={`tree-item-wrapper ${data.children ? "has-children" : ""}`}>
-      <p style={{marginLeft: `${nestedIndex * 20}px`}} onClick={handleClick} className={"tree-item"}>{data.children && "^"} {nameFromType(data.type)}</p>
+    <>
+      <h2>Sections</h2>
+      <div className={"tree-wrapper"}>
+        {/* Render Sections Tree Recursive */}
+        {state.data.map(el => RenderTreeItems(el, 0, handleClick))}
+      </div>
+    </>
+  )
+}
+
+const RenderTreeItems = (data, nestedIndex, handleClick) => {
+  // Note dont render between
+  if (data.between) {
+    return
+  }
+
+  return (
+    <React.Fragment key={data.id}>
+      <p style={{paddingLeft: `${nestedIndex * 20}px`}} onClick={() => handleClick(data)} className={"tree-item"}>{data.children && "^"} {nameFromType(data.type)}</p>
       {data.openInTree && data.children && (
-        data.children.map(child => RenderTreeItems(child, nestedIndex + 1))
+        data.children.map(child => RenderTreeItems(child, nestedIndex + 1, handleClick))
       )}
-    </div>
+    </React.Fragment>
   )
 }
 

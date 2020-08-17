@@ -5,10 +5,9 @@ import App from './App';
 import {DropDataProvider} from "./DropContext";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <DropDataProvider>
-      <App />
-    </DropDataProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+  <DropDataProvider>
+    <App/>
+  </DropDataProvider>,
+document.getElementById('root')
+)
+;

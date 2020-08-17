@@ -1,10 +1,11 @@
 import React from "react";
 import { useDragLayer } from "react-dnd";
-import {ImageType, TextType, ThreeDroppableColumns, TwoDroppableColumns} from "../CardTypes";
+import {CodeType, ImageType, TextType, ThreeDroppableColumns, TwoDroppableColumns} from "../CardTypes";
 import TextCardPreview from "./Cards/TextCardPreview";
 import TwoColumnCardPreview from "./Cards/TwoColumnCardPreview";
 import ThreeColumnCardPreview from "./Cards/ThreeColumnCardPreview";
 import ImageCardPreview from "./Cards/ImageCardPreview";
+import CodeCardPreview from "./Cards/CodeCardPreview";
 
 const getItemStyles = (initialOffset, currentOffset) => {
   if (!initialOffset || !currentOffset) {
@@ -46,6 +47,8 @@ const CustomDragLayer = props => {
         return <ThreeColumnCardPreview/>
       case ImageType:
         return <ImageCardPreview />
+      case CodeType:
+        return <CodeCardPreview />
       default:
         return null;
     }

@@ -45,6 +45,12 @@
   }
 }
 
+.code-type-preview-jsx {
+  pre {
+    margin: 0;
+  }
+}
+
 // CSS for card being dragged after drag started
 .card-preview {
   cursor: pointer;

@@ -1,3 +1,4 @@
+@import "dracula.css";
 p {
   margin: 0;
 }
@@ -97,7 +98,13 @@ input[disabled] {
 .left-panel .component-list-wrapper .components-list .card p:hover {
   cursor: grab;
 }
+.left-panel .component-list-wrapper .tree-wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
 .left-panel .component-list-wrapper .tree-wrapper .tree-item {
+  box-sizing: content-box;
   width: 100%;
   word-break: keep-all;
   border-bottom: 1px solid rgba(37, 37, 37, 0.5);
@@ -121,6 +128,9 @@ input[disabled] {
   min-width: 400px;
   max-width: 50%;
   background: #bcbcbc;
+}
+.right-panel .css-26l3qy-menu {
+  z-index: 5;
 }
 .right-panel h1 {
   margin-top: 20px;
@@ -308,6 +318,10 @@ input[disabled] {
 .image-type-preview img {
   max-height: 90%;
   max-width: 90%;
+}
+
+.code-type-preview-jsx pre {
+  margin: 0;
 }
 
 .card-preview {

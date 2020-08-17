@@ -1,12 +1,21 @@
 import React, {useContext, useRef, useState} from "react";
 import {DELETE_SECTION, DropDataContext, getSelectedObj, UPDATE_SECTION} from "../DropContext";
-import {ImageType, TextType} from "../CardTypes";
+import {CodeType, ImageType, TextType} from "../CardTypes";
 import TextInput from "../Components/DetailComponents/TextInput";
 import AllPaddings from "../Images/padding-all.png";
 import IndividualPaddings from "../Images/padding-individual.png";
 import {Editor} from '@tinymce/tinymce-react';
 import DomPurify from "dompurify";
 import {SketchPicker} from 'react-color';
+import AceEditor from "react-ace";
+import Select from "react-select";
+
+// CSS imports for AceEditor
+import "ace-builds/src-noconflict/mode-golang";
+import "ace-builds/src-noconflict/mode-html";
+import "ace-builds/src-noconflict/mode-javascript";
+import "ace-builds/src-noconflict/mode-typescript";
+import "ace-builds/src-noconflict/theme-monokai";
 
 const DetailsPanel = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
@@ -49,7 +58,6 @@ const DetailsPanel = () => {
       }
     }
 
-    console.log("here")
     setSelected(prev => ({
       ...prev,
       style: {
@@ -94,6 +102,20 @@ const DetailsPanel = () => {
     setSelected(prev => ({
       ...prev,
       data: DomPurify.sanitize(data)
+    }))
+  }
+
+  const handleCodeLanguageChange = (newLanguage) => {
+    setSelected(prev => ({
+      ...prev,
+      language: newLanguage
+    }))
+  }
+
+  const handleCodeChange = (data) => {
+    setSelected(prev => ({
+      ...prev,
+      data: data
     }))
   }
 
@@ -159,6 +181,54 @@ const DetailsPanel = () => {
               <button onClick={clearImage}>Clear Image</button>
             </div>
             {SizingJSX()}
+          </div>
+        )
+      case CodeType:
+        const options = [
+          {
+            value: "html",
+            label: "HTML"
+          },
+          {
+            value: "javascript",
+            label: "Javascript"
+          }
+        ];
+        return(
+          <div className={"options"}>
+            <div className="group">
+              <h4 className={"heading"}>
+                Code
+              </h4>
+            </div>
+            <div className={"code-lang-option"}>
+              <p>Language:</p>
+              <Select
+                value={options.find(el => el.value === selected.language)}
+                onChange={(e) => handleCodeLanguageChange(e.value)}
+                options={options}
+              />
+            </div>
+            <div className={"ace-editor-wrapper"}>
+              <AceEditor
+                width={"100%"}
+                placeholder=""
+                mode="html"
+                theme="monokai"
+                name="blah2"
+                onChange={handleCodeChange}
+                fontSize={14}
+                showPrintMargin={true}
+                showGutter={true}
+                highlightActiveLine={true}
+                setOptions={{
+                  enableBasicAutocompletion: false,
+                  enableLiveAutocompletion: false,
+                  enableSnippets: false,
+                  showLineNumbers: true,
+                  tabSize: 2,
+                }}/>
+            </div>
           </div>
         )
       default:
@@ -496,7 +566,11 @@ export default DetailsPanel
 const getName = (type) => {
   switch (type) {
     case TextType:
-      return "Text Card";
+      return "Text";
+    case CodeType:
+      return "Code";
+    case ImageType:
+      return "Image"
     default:
       return null
   }

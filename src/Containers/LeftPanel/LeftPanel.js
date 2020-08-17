@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import Card from "../../Components/Cards/Card";
-import {ImageType, TextType, ThreeDroppableColumns, TwoDroppableColumns} from "../../CardTypes";
+import {CodeType, ImageType, TextType, ThreeDroppableColumns, TwoDroppableColumns} from "../../CardTypes";
 import {AiOutlineApartment, GrNewWindow, RiSettings5Line} from "react-icons/all";
 import {DropDataContext} from "../../DropContext";
 import Tree from "./Tree";
@@ -22,6 +22,10 @@ const CardList = [
     type: ImageType,
     name: "Image",
   },
+  {
+    type: CodeType,
+    name: "Code Type",
+  }
 ];
 
 const LeftPanel = (props) => {

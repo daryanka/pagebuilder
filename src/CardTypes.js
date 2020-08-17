@@ -3,3 +3,4 @@ export const TwoDroppableColumns = "TWO_DROPPABLE_SECTION_TYPE";
 export const ThreeDroppableColumns = "THREE_DROPPABLE_SECTION_TYPE";
 export const DroppableArea = "DROPPABLE_AREA_TYPE";
 export const ImageType = "IMAGE_TYPE";
+export const CodeType = "CODE_TYPE";

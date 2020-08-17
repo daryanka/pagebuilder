@@ -11,7 +11,7 @@ import {
   TextType,
   DroppableArea,
   ThreeDroppableColumns,
-  ImageType
+  ImageType, CodeType
 } from "./CardTypes";
 
 // Section Imports
@@ -20,6 +20,7 @@ import DetailsPanel from "./Containers/DetailPanel";
 import TextSection from "./Components/Sections/TextSection";
 import ImageSection from "./Components/Sections/ImageSection";
 import LeftPanel from "./Containers/LeftPanel/LeftPanel";
+import CodeSection from "./Components/Sections/CodeSection";
 
 
 
@@ -83,6 +84,12 @@ const renderItemFromObj = (obj, runningIndex) => {
       return(
         <SectionWrapper id={obj.id} key={obj.id}>
           <ImageSection {...obj}/>
+        </SectionWrapper>
+      )
+    case CodeType:
+      return(
+        <SectionWrapper id={obj.id} key={obj.id}>
+          <CodeSection {...obj}/>
         </SectionWrapper>
       )
     case DroppableArea:
