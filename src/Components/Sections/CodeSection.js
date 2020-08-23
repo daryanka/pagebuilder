@@ -1,21 +1,24 @@
 import React from "react";
-import Highlight from "react-highlight.js";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
+import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-const CodeSection = ({data, language}) => {
-  console.log("language", language)
-  const t = `function PrintName(name) {
-  console.log(name)
-}
-`
+SyntaxHighlighter.registerLanguage("jsx", jsx);
+SyntaxHighlighter.registerLanguage("tsx", tsx);
 
-  console.log(data)
-  return(
-    <div>
-      <Highlight lang={language}>
+const CodeSection = ({ data, language, ...props }) => {
+
+  return (
+    <div className={"code-section"} style={props.style ? props.style : {}}>
+      <SyntaxHighlighter
+        language={language}
+        style={dracula}
+      >
         {data}
-      </Highlight>
+      </SyntaxHighlighter>
     </div>
-  )
+  );
 };
 
 export default CodeSection;

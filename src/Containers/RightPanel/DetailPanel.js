@@ -1,21 +1,13 @@
 import React, {useContext, useRef, useState} from "react";
-import {DELETE_SECTION, DropDataContext, getSelectedObj, UPDATE_SECTION} from "../DropContext";
-import {CodeType, ImageType, TextType} from "../CardTypes";
-import TextInput from "../Components/DetailComponents/TextInput";
-import AllPaddings from "../Images/padding-all.png";
-import IndividualPaddings from "../Images/padding-individual.png";
+import {DELETE_SECTION, DropDataContext, getSelectedObj, UPDATE_SECTION} from "../../DropContext";
+import {CodeType, ImageType, TextType} from "../../CardTypes";
+import TextInput from "../../Components/DetailComponents/TextInput";
+import AllPaddings from "../../Images/padding-all.png";
+import IndividualPaddings from "../../Images/padding-individual.png";
 import {Editor} from '@tinymce/tinymce-react';
 import DomPurify from "dompurify";
 import {SketchPicker} from 'react-color';
-import AceEditor from "react-ace";
 import Select from "react-select";
-
-// CSS imports for AceEditor
-import "ace-builds/src-noconflict/mode-golang";
-import "ace-builds/src-noconflict/mode-html";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/mode-typescript";
-import "ace-builds/src-noconflict/theme-monokai";
 
 const DetailsPanel = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
@@ -112,10 +104,11 @@ const DetailsPanel = () => {
     }))
   }
 
-  const handleCodeChange = (data) => {
+  const handleCodeChange = (e) => {
+    e.persist()
     setSelected(prev => ({
       ...prev,
-      data: data
+      data: e.target.value
     }))
   }
 
@@ -190,9 +183,17 @@ const DetailsPanel = () => {
             label: "HTML"
           },
           {
-            value: "javascript",
+            value: "jsx",
             label: "Javascript"
-          }
+          },
+          {
+            value: "tsx",
+            label: "Typescript"
+          },
+          {
+            value: "go",
+            label: "Golang"
+          },
         ];
         return(
           <div className={"options"}>
@@ -202,33 +203,19 @@ const DetailsPanel = () => {
               </h4>
             </div>
             <div className={"code-lang-option"}>
-              <p>Language:</p>
+              <p className={"label-d"}>Language:</p>
               <Select
                 value={options.find(el => el.value === selected.language)}
                 onChange={(e) => handleCodeLanguageChange(e.value)}
                 options={options}
               />
             </div>
-            <div className={"ace-editor-wrapper"}>
-              <AceEditor
-                width={"100%"}
-                placeholder=""
-                mode="html"
-                theme="monokai"
-                name="blah2"
-                onChange={handleCodeChange}
-                fontSize={14}
-                showPrintMargin={true}
-                showGutter={true}
-                highlightActiveLine={true}
-                setOptions={{
-                  enableBasicAutocompletion: false,
-                  enableLiveAutocompletion: false,
-                  enableSnippets: false,
-                  showLineNumbers: true,
-                  tabSize: 2,
-                }}/>
-            </div>
+           <div className={"code-textarea"}>
+             <p className={"label-d"}>Code Snippet:</p>
+             <textarea value={selected.data} onChange={handleCodeChange} />
+           </div>
+            {SizingJSX()}
+            {BorderJSX()}
           </div>
         )
       default:

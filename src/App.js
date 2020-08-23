@@ -16,7 +16,7 @@ import {
 
 // Section Imports
 import SectionWrapper from "./Components/Sections/SectionWrapper";
-import DetailsPanel from "./Containers/DetailPanel";
+import DetailsPanel from "./Containers/RightPanel/DetailPanel";
 import TextSection from "./Components/Sections/TextSection";
 import ImageSection from "./Components/Sections/ImageSection";
 import LeftPanel from "./Containers/LeftPanel/LeftPanel";

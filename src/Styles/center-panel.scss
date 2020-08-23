@@ -1,4 +1,8 @@
 .center-panel {
+  * {
+    box-sizing: border-box;
+  }
+
   min-height: 100%;
   .title {
     margin: 20px 0;

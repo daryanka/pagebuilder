@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
-import Highlight from "react-highlight.js";
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {CHANGE_TYPE, DropDataContext, SET_SELECTED} from "../DropContext";
 import {useDrop} from "react-dnd";
 import {TextType, TwoDroppableColumns, ThreeDroppableColumns, DroppableArea, ImageType, CodeType} from "../CardTypes";
@@ -96,8 +97,10 @@ const DroppableSection = ({runningIndex, between}) => {
           payload.data = null
           break;
         case CodeType:
-          payload.language = "javascript"
-          payload.data = `console.log("hello world")`
+          payload.language = "jsx"
+          payload.data = `function PrintName(name) {
+  console.log(name)
+}`
           break;
         default:
           break;
@@ -179,13 +182,12 @@ const imageTypePreviewJSX = (
 
 const codePreviewContent = `function PrintName(name) {
   console.log(name)
-}
-`
+}`
 
 const codeTypePreviewJSX = (
   <div className={"code-type-preview-jsx"}>
-    <Highlight language={"javascript"}>
+    <SyntaxHighlighter language={"javascript"} style={dracula}>
       {codePreviewContent}
-    </Highlight>
+    </SyntaxHighlighter>
   </div>
 )
