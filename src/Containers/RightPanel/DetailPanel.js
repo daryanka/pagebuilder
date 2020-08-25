@@ -1,13 +1,13 @@
-import React, {useContext, useRef, useState} from "react";
+import React, {useContext, useState} from "react";
 import {DELETE_SECTION, DropDataContext, getSelectedObj, UPDATE_SECTION} from "../../DropContext";
 import {CodeType, ImageType, TextType} from "../../CardTypes";
 import TextInput from "../../Components/DetailComponents/TextInput";
 import AllPaddings from "../../Images/padding-all.png";
 import IndividualPaddings from "../../Images/padding-individual.png";
-import {Editor} from '@tinymce/tinymce-react';
-import DomPurify from "dompurify";
 import {SketchPicker} from 'react-color';
-import Select from "react-select";
+import CodeDetails from "./CodeDetails";
+import ImageDetails from "./ImageDetails";
+import TextDetails from "./TextDetails";
 
 const DetailsPanel = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
@@ -83,35 +83,6 @@ const DetailsPanel = () => {
     setSelected(null)
   }
 
-  const clearImage = () => {
-    setSelected(prev => ({
-      ...prev,
-      data: null
-    }))
-  }
-
-  const handleTextDataChange = (data) => {
-    setSelected(prev => ({
-      ...prev,
-      data: DomPurify.sanitize(data)
-    }))
-  }
-
-  const handleCodeLanguageChange = (newLanguage) => {
-    setSelected(prev => ({
-      ...prev,
-      language: newLanguage
-    }))
-  }
-
-  const handleCodeChange = (e) => {
-    e.persist()
-    setSelected(prev => ({
-      ...prev,
-      data: e.target.value
-    }))
-  }
-
   // Everytime selected is update then also update state
   React.useEffect(() => {
     if (selected && selected.id) {
@@ -128,94 +99,19 @@ const DetailsPanel = () => {
       case TextType:
         return (
           <div className={"options"}>
-            <div className="group">
-              <h4 className="heading">
-                Text
-              </h4>
-              <div>
-                <Editor
-                  initialValue={selected.data}
-                  value={selected.data}
-                  init={{
-                    height: 500,
-                    menubar: false,
-                    plugins: [
-                      'advlist autolink lists link charmap print preview anchor',
-                      'searchreplace visualblocks code fullscreen',
-                      'insertdatetime table paste code help wordcount'
-                    ],
-                    toolbar:
-                      'fullscreen | formatselect | bold italic backcolor | \
-                      alignleft aligncenter alignright alignjustify | \
-                      bullist numlist outdent indent | removeformat | help'
-                  }}
-                  onEditorChange={handleTextDataChange}
-                  setOptions={{
-                    plugins: []
-                  }}
-                />
-              </div>
-            </div>
-            {SizingJSX()}
-            {BorderJSX()}
+            <TextDetails selected={selected} setSelected={setSelected} />
           </div>
         )
       case ImageType:
-        if (!selected.data) {
-          return null
-        }
         return (
           <div className={"options"}>
-            <div className="group">
-              <h4 className={"heading"}>
-                Image
-              </h4>
-              <p>Image: {selected.fileName}</p>
-              <button onClick={clearImage}>Clear Image</button>
-            </div>
-            {SizingJSX()}
+            <ImageDetails selected={selected} setSelected={setSelected} />
           </div>
         )
       case CodeType:
-        const options = [
-          {
-            value: "html",
-            label: "HTML"
-          },
-          {
-            value: "jsx",
-            label: "Javascript"
-          },
-          {
-            value: "tsx",
-            label: "Typescript"
-          },
-          {
-            value: "go",
-            label: "Golang"
-          },
-        ];
         return(
           <div className={"options"}>
-            <div className="group">
-              <h4 className={"heading"}>
-                Code
-              </h4>
-            </div>
-            <div className={"code-lang-option"}>
-              <p className={"label-d"}>Language:</p>
-              <Select
-                value={options.find(el => el.value === selected.language)}
-                onChange={(e) => handleCodeLanguageChange(e.value)}
-                options={options}
-              />
-            </div>
-           <div className={"code-textarea"}>
-             <p className={"label-d"}>Code Snippet:</p>
-             <textarea value={selected.data} onChange={handleCodeChange} />
-           </div>
-            {SizingJSX()}
-            {BorderJSX()}
+            <CodeDetails selected={selected} setSelected={setSelected} />
           </div>
         )
       default:
