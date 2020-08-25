@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/DroppableSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DroppableSection.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/Sections/CodeSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Sections/CodeSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/DetailPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/center-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/center-panel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/droppable-area.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/droppable-area.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/general.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/general.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/right-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/right-panel.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +71,8 @@
       <workItem from="1597583262072" duration="5581000" />
       <workItem from="1597690597211" duration="6358000" />
       <workItem from="1598111674519" duration="7221000" />
+      <workItem from="1598201091842" duration="1416000" />
+      <workItem from="1598376863462" duration="426000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
       <created>1595707981929</created>
@@ -206,6 +196,9 @@
     <option name="localTasksCounter" value="18" />
     <servers />
   </component>
+  <component name="TerminalProjectNonSharedOptionsProvider">
+    <option name="shellPath" value="D:\Git\bin\sh.exe" />
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
@@ -266,10 +259,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595612592273" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1597691044672">
+    <state x="740" y="258" key="FileChooserDialogImpl" timestamp="1598206205513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597691044672" />
+    <state x="740" y="258" key="FileChooserDialogImpl/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598206205513" />
+    <state x="748" y="142" key="SettingsEditor" timestamp="1598377288677">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="748" y="142" key="SettingsEditor/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598377288677" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597013558688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -286,9 +283,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597695637378" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598128116330">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598377026681">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598128116330" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598377026681" />
   </component>
 </project>
