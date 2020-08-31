@@ -1,7 +1,14 @@
 import React, {useContext} from "react";
 import Card from "../../Components/Cards/Card";
 import {DropDataContext, SET_SELECTED, UPDATE_SECTION} from "../../DropContext";
-import {ImageType, TextType, TwoDroppableColumns, ThreeDroppableColumns, DroppableArea} from "../../CardTypes";
+import {
+  ImageType,
+  TextType,
+  TwoDroppableColumns,
+  ThreeDroppableColumns,
+  DroppableArea,
+  CodeType
+} from "../../CardTypes";
 
 const nameFromType = (t) => {
   switch (t) {
@@ -15,6 +22,8 @@ const nameFromType = (t) => {
       return "Empty Section"
     case ImageType:
       return "Image"
+    case CodeType:
+      return "Code Section"
     default:
       return ""
   }
