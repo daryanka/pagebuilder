@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Containers/RightPanel/CodeDetails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Containers/RightPanel/ImageDetails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Containers/RightPanel/TextDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +76,8 @@
       <workItem from="1597690597211" duration="6358000" />
       <workItem from="1598111674519" duration="7221000" />
       <workItem from="1598201091842" duration="1416000" />
-      <workItem from="1598376863462" duration="3290000" />
+      <workItem from="1598376863462" duration="4040000" />
+      <workItem from="1598840583405" duration="7000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
       <created>1595707981929</created>
@@ -208,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598377315739</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactored details panel into multiple functions for each section type">
+      <created>1598386203857</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1598386203857</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -248,7 +252,8 @@
     <MESSAGE value="added sections with recursive rendering styling incomplete" />
     <MESSAGE value="WIP adding code snippet part" />
     <MESSAGE value="ide files" />
-    <option name="LAST_COMMIT_MESSAGE" value="ide files" />
+    <MESSAGE value="refactored details panel into multiple functions for each section type" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored details panel into multiple functions for each section type" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Inspections" timestamp="1595611383752">
@@ -263,10 +268,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595626690470" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1598377312608">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1598386202148">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598377312608" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598386202148" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1595980132914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -279,14 +284,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="258" key="FileChooserDialogImpl/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598206205513" />
-    <state x="748" y="142" key="SettingsEditor" timestamp="1598377288677">
+    <state x="748" y="142" key="SettingsEditor" timestamp="1598840589388">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="748" y="142" key="SettingsEditor/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598377288677" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1597013558688">
+    <state x="748" y="142" key="SettingsEditor/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598840589388" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1598386224984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597013558688" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598386224984" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1597690723425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -299,9 +304,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597695637378" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598377026681">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598840584522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598377026681" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598840584522" />
   </component>
 </project>
