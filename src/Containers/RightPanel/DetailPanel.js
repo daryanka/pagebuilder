@@ -9,6 +9,7 @@ import CodeDetails from "./CodeDetails";
 import ImageDetails from "./ImageDetails";
 import TextDetails from "./TextDetails";
 import SizingDetails from "./SizingDetails";
+import BorderDetails from "./BorderDetails";
 
 const DetailsPanel = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
@@ -109,6 +110,7 @@ const DetailsPanel = () => {
       <div className={"options"}>
         {option}
         <SizingDetails selected={selected} setSelected={setSelected} />
+        <BorderDetails selected={selected} setSelected={setSelected} />
         {/*{BorderJSX()}*/}
       </div>
     )

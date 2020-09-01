@@ -32,18 +32,18 @@ const DroppableSection = ({runningIndex, between}) => {
 
         style: {
           // Default padding
-          "padding": "0px",
+          padding: "0px",
 
           // Default Margin
-          "margin": "0px",
+          margin: "0px",
 
           // Default border
-          "borderWidth": "0px",
-          "borderColor": "#000000",
-          "borderStyle": "solid",
+          borderWidth: "0px",
+          borderColor: "#000000",
+          borderStyle: "solid",
 
           // Default border radius
-          "borderRadius": "0px",
+          borderRadius: "0px",
         },
 
         // Border color, for color picker
@@ -76,6 +76,20 @@ const DroppableSection = ({runningIndex, between}) => {
           borderLeftWidth: "0px",
           borderTopWidth: "0px",
           borderBottomWidth: "0px",
+        },
+
+        borderRadiusOptions: {
+          single: true,
+          borderRadius: "0px",
+          borderTopRightRadius: "0px",
+          borderBottomRightRadius: "0px",
+          borderTopLeftRadius: "0px",
+          borderBottomLeftRadius: "0px",
+        },
+
+        options: {
+          sizingOpen: false,
+          borderOpen: false
         },
 
         // Left panel tree, open state, closed by initially

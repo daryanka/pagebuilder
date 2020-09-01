@@ -154,7 +154,7 @@ const SizingDetails = ({selected, setSelected}) => {
               <div className={"all-style"}>
                 <TextInput
                   name={"padding"}
-                  value={parseInt(selected.style.padding) ? parseInt(selected.style.padding) : selected.paddingOptions.padding}
+                  value={parseInt(selected.style.padding) ? parseInt(selected.style.padding) : parseInt(selected.paddingOptions.padding)}
                   disabled={!selected.paddingOptions.single}
                   onChange={handleChangeStyle}
                   type={"number"}
@@ -198,7 +198,7 @@ const SizingDetails = ({selected, setSelected}) => {
               <div className={"all-style"}>
                 <TextInput
                   name={"margin"}
-                  value={parseInt(selected.style.margin) ? parseInt(selected.style.margin) : selected.marginOptions.margin}
+                  value={parseInt(selected.style.margin) ? parseInt(selected.style.margin) : parseInt(selected.marginOptions.margin)}
                   disabled={!selected.marginOptions.single}
                   onChange={handleChangeStyle}
                   type={"number"}

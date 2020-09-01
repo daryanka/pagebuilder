@@ -26,8 +26,33 @@ const BorderDetails = ({selected, setSelected}) => {
   const handleChangeStyle = (e) => {
     e.persist()
     let val = e.target.value
-
     val = `${e.target.value}px`
+
+    if (e.target.name.includes("Width")) {
+      return setSelected(prev => ({
+        ...prev,
+        style: {
+          ...prev.style,
+          [e.target.name]: val
+        },
+        borderWidthOptions: {
+          ...prev.borderWidthOptions,
+          [e.target.name]: val
+        }
+      }))
+    } else if (e.target.name.includes("Radius")) {
+      return setSelected(prev => ({
+        ...prev,
+        style: {
+          ...prev.style,
+          [e.target.name]: val
+        },
+        borderRadiusOptions: {
+          ...prev.borderRadiusOptions,
+          [e.target.name]: val
+        }
+      }))
+    }
 
     setSelected(prev => ({
       ...prev,
@@ -53,7 +78,7 @@ const BorderDetails = ({selected, setSelected}) => {
 
       if (multiple) {
         // Delete single and add multiple from borderWidthOptions
-        delete returnObj.style.padding
+        delete returnObj.style.borderWidth
         returnObj.style.borderTopWidth = returnObj.borderWidthOptions.borderTopWidth
         returnObj.style.borderBottomWidth = returnObj.borderWidthOptions.borderBottomWidth
         returnObj.style.borderRightWidth = returnObj.borderWidthOptions.borderRightWidth
@@ -77,26 +102,26 @@ const BorderDetails = ({selected, setSelected}) => {
         style: {
           ...prev.style
         },
-        borderWidthOptions: {
-          ...prev.borderWidthOptions,
+        borderRadiusOptions: {
+          ...prev.borderRadiusOptions,
           single: !multiple
         },
       }
 
       if (multiple) {
         // Delete single and add multiple from borderWidthOptions
-        delete returnObj.style.padding
-        returnObj.style.borderTopWidth = returnObj.borderWidthOptions.borderTopWidth
-        returnObj.style.borderBottomWidth = returnObj.borderWidthOptions.borderBottomWidth
-        returnObj.style.borderRightWidth = returnObj.borderWidthOptions.borderRightWidth
-        returnObj.style.borderLeftWidth = returnObj.borderWidthOptions.borderLeftWidth
+        delete returnObj.style.borderRadius
+        returnObj.style.borderTopRightRadius = returnObj.borderRadiusOptions.borderTopRightRadius
+        returnObj.style.borderBottomRightRadius = returnObj.borderRadiusOptions.borderBottomRightRadius
+        returnObj.style.borderTopLeftRadius = returnObj.borderRadiusOptions.borderTopLeftRadius
+        returnObj.style.borderBottomLeftRadius = returnObj.borderRadiusOptions.borderBottomLeftRadius
       } else {
-        // Delete all multiple and add single from borderWidthOptions
-        returnObj.style.borderWidth = returnObj.borderWidthOptions.borderWidth
-        delete returnObj.style.borderTopWidth
-        delete returnObj.style.borderBottomWidth
-        delete returnObj.style.borderRightWidth
-        delete returnObj.style.borderLeftWidth
+        // Delete all multiple and add single from borderRadiusOptions
+        returnObj.style.borderRadius = returnObj.borderRadiusOptions.borderRadius
+        delete returnObj.style.borderTopRightRadius
+        delete returnObj.style.borderBottomRightRadius
+        delete returnObj.style.borderTopLeftRadius
+        delete returnObj.style.borderBottomLeftRadius
       }
       return returnObj
     })
@@ -140,7 +165,7 @@ const BorderDetails = ({selected, setSelected}) => {
             <div className={"all-style"}>
               <TextInput
                 name={"borderWidth"}
-                value={parseInt(selected.style.borderWidth) ? parseInt(selected.style.borderWidth) : 0}
+                value={selected.style.borderWidth ? parseInt(selected.style.borderWidth) : parseInt(selected.borderWidthOptions.borderWidth)}
                 disabled={!selected.borderWidthOptions.single}
                 onChange={handleChangeStyle}
                 type={"number"}
@@ -180,21 +205,21 @@ const BorderDetails = ({selected, setSelected}) => {
             <div className={"all-style"}>
               <TextInput
                 name={"borderRadius"}
-                value={parseInt(selected.style.borderRadius) ? parseInt(selected.style.borderRadius) : 0}
-                disabled={multiple.borderRadius}
+                value={selected.style.borderRadius ? parseInt(selected.style.borderRadius) : parseInt(selected.borderRadiusOptions.borderRadius)}
+                disabled={!selected.borderRadiusOptions.single}
                 onChange={handleChangeStyle}
                 type={"number"}
               />
               <p className={"px"}>px</p>
             </div>
             <div className={"settings"}>
-              <img onClick={() => handleMultipleSwitch("borderRadius", false)} src={AllPaddings} alt="all-paddings"/>
-              <img onClick={() => handleMultipleSwitch("borderRadius", true)} src={IndividualPaddings}
+              <img onClick={() => handleBorderRadiusSwitch(false)} src={AllPaddings} alt="all-paddings"/>
+              <img onClick={() => handleBorderRadiusSwitch(true)} src={IndividualPaddings}
                    alt="individual-paddings"/>
             </div>
           </div>
         </div>
-        {multiple.borderRadius && (
+        {!selected.borderRadiusOptions.single && (
           <div className={"multiple"}>
             {["TopRight", "TopLeft", "BottomLeft", "BottomRight"].map(el => {
               return (
