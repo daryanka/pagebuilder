@@ -41,7 +41,7 @@ const ImageSection = (props) => {
 
   if (props.data) {
     return (
-      <img src={props.data} alt="image" style={props.style ? props.style : {}}/>
+      <img src={props.data} style={props.style ? props.style : {}}/>
     )
   }
 

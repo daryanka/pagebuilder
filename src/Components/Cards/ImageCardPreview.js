@@ -6,7 +6,7 @@ const ImageCardPreview = (props) => {
     <div
       className={"card-preview image-preview"}
     >
-      <img src={img} alt="image"/>
+      <img src={img} />
     </div>
   )
 }

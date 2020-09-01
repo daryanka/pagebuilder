@@ -51,6 +51,33 @@ const DroppableSection = ({runningIndex, between}) => {
           color: "#000000"
         },
 
+        paddingOptions: {
+          single: true,
+          padding: "0px",
+          paddingRight: "0px",
+          paddingLeft: "0px",
+          paddingTop: "0px",
+          paddingBottom: "0px",
+        },
+
+        marginOptions: {
+          single: true,
+          margin: "0px",
+          marginRight: "0px",
+          marginLeft: "0px",
+          marginTop: "0px",
+          marginBottom: "0px",
+        },
+
+        borderWidthOptions: {
+          single: true,
+          borderWidth: "0px",
+          borderRightWidth: "0px",
+          borderLeftWidth: "0px",
+          borderTopWidth: "0px",
+          borderBottomWidth: "0px",
+        },
+
         // Left panel tree, open state, closed by initially
         openInTree: false
       }
@@ -176,7 +203,7 @@ const threeColTypePreviewJSX = (
 
 const imageTypePreviewJSX = (
   <div className={"image-type-preview"}>
-    <img src={ImageTypeBackground} alt="Image"/>
+    <img src={ImageTypeBackground} />
   </div>
 )
 

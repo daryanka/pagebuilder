@@ -8,6 +8,7 @@ import {SketchPicker} from 'react-color';
 import CodeDetails from "./CodeDetails";
 import ImageDetails from "./ImageDetails";
 import TextDetails from "./TextDetails";
+import SizingDetails from "./SizingDetails";
 
 const DetailsPanel = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
@@ -27,17 +28,6 @@ const DetailsPanel = () => {
   React.useEffect(() => {
     const result = getSelectedObj(state.data, state.selected.id)
     setSelected({...result})
-    // Check margin, padding, border, borderRadius to see if they should be multiple or not
-    const types = ["margin", "padding", "border"];
-    if (result) {
-      types.forEach(el => {
-        if (result.style[el]) {
-          setMultiple((prev) => ({...prev, [el]: false}))
-        } else {
-          setMultiple((prev) => ({...prev, [el]: true}))
-        }
-      })
-    }
   }, [state.selected, state.selected.update])
 
   const handleChangeStyle = (e) => {
@@ -95,28 +85,34 @@ const DetailsPanel = () => {
   }, [selected])
 
   const renderOptions = () => {
+    let option
     switch (selected.type) {
       case TextType:
-        return (
-          <div className={"options"}>
-            <TextDetails selected={selected} setSelected={setSelected} />
-          </div>
+        option = (
+          <TextDetails selected={selected} setSelected={setSelected}/>
         )
+        break;
       case ImageType:
-        return (
-          <div className={"options"}>
-            <ImageDetails selected={selected} setSelected={setSelected} />
-          </div>
+        option = (
+          <ImageDetails selected={selected} setSelected={setSelected}/>
         )
+        break;
       case CodeType:
-        return(
-          <div className={"options"}>
-            <CodeDetails selected={selected} setSelected={setSelected} />
-          </div>
+        option = (
+          <CodeDetails selected={selected} setSelected={setSelected}/>
         )
+        break;
       default:
         return null
     }
+    return (
+      <div className={"options"}>
+        {option}
+        <SizingDetails selected={selected} setSelected={setSelected} />
+        {/*{BorderJSX()}*/}
+      </div>
+    )
+
   }
 
   const handleMultipleSwitch = (type, multiple) => {
@@ -169,7 +165,7 @@ const DetailsPanel = () => {
       if (multiple) {
         // Remove the normal one like margin, padding, border and instead use multiple
         delete returnObj.style[type]
-      }  else {
+      } else {
         // Remove individuals
         delete returnObj.style[`${type}Top`]
         delete returnObj.style[`${type}Bottom`]
@@ -399,7 +395,8 @@ const DetailsPanel = () => {
               </div>
               <div className={"settings"}>
                 <img onClick={() => handleMultipleSwitch("borderRadius", false)} src={AllPaddings} alt="all-paddings"/>
-                <img onClick={() => handleMultipleSwitch("borderRadius", true)} src={IndividualPaddings} alt="individual-paddings"/>
+                <img onClick={() => handleMultipleSwitch("borderRadius", true)} src={IndividualPaddings}
+                     alt="individual-paddings"/>
               </div>
             </div>
           </div>
@@ -427,6 +424,8 @@ const DetailsPanel = () => {
       </div>
     )
   }
+
+  console.log("selected", selected)
 
   return (
     <div>
