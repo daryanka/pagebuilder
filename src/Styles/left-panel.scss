@@ -70,14 +70,43 @@
     }
 
     .tree-wrapper {
-      display: flex;
-      flex-direction: column;
-      overflow: auto;
+      margin: 20px 0;
       .tree-item {
-        box-sizing: content-box;
-        width: 100%;
+        position: relative;
+        display: inline-block;
+        min-width: 100%;
+        width: auto;
+        padding: 5px 0;
+        box-sizing: border-box;
         word-break: keep-all;
+        white-space: nowrap;
         border-bottom: 1px solid $lightGray;
+
+        .tree-item-content {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          p {
+            margin-left: 5px;
+          }
+
+          svg {
+            margin-left: 5px;
+            transition: ease all 0.3s;
+            &.close {
+              transform: rotate(0);
+            }
+
+            &.open {
+              transform: rotate(90deg);
+            }
+          }
+        }
+
+        &:first-child {
+          border-top: 1px solid $lightGray;
+        }
       }
     }
   }

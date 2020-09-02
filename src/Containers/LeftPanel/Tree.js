@@ -1,6 +1,10 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Card from "../../Components/Cards/Card";
-import {DropDataContext, SET_SELECTED, UPDATE_SECTION} from "../../DropContext";
+import {
+  DropDataContext,
+  SET_SELECTED,
+  UPDATE_SECTION
+} from "../../DropContext";
 import {
   ImageType,
   TextType,
@@ -9,35 +13,36 @@ import {
   DroppableArea,
   CodeType
 } from "../../CardTypes";
+import {BsChevronRight} from "react-icons/bs"
 
-const nameFromType = (t) => {
+const nameFromType = t => {
   switch (t) {
     case TextType:
-      return "Text"
+      return "Text";
     case TwoDroppableColumns:
-      return "2 Columns"
+      return "2 Columns";
     case ThreeDroppableColumns:
-      return "Three Columns"
+      return "Three Columns";
     case DroppableArea:
-      return "Empty Section"
+      return "Empty Section";
     case ImageType:
-      return "Image"
+      return "Image";
     case CodeType:
-      return "Code Section"
+      return "Code Section";
     default:
-      return ""
+      return "";
   }
-}
+};
 
-const Tree = (props) => {
-  const [state, dispatch] = useContext(DropDataContext)
+const Tree = props => {
+  const [state, dispatch] = useContext(DropDataContext);
 
-  const handleClick = (data) => {
+  const handleClick = data => {
     // Set Selected and toggle openInTree
     dispatch({
       type: SET_SELECTED,
       payload: data.id
-    })
+    });
 
     dispatch({
       type: UPDATE_SECTION,
@@ -46,8 +51,8 @@ const Tree = (props) => {
         ...data,
         openInTree: !data.openInTree
       }
-    })
-  }
+    });
+  };
 
   return (
     <>
@@ -57,23 +62,34 @@ const Tree = (props) => {
         {state.data.map(el => RenderTreeItems(el, 0, handleClick))}
       </div>
     </>
-  )
-}
+  );
+};
 
 const RenderTreeItems = (data, nestedIndex, handleClick) => {
   // Note dont render between
   if (data.between) {
-    return
+    return;
   }
 
   return (
     <React.Fragment key={data.id}>
-      <p style={{paddingLeft: `${nestedIndex * 20}px`}} onClick={() => handleClick(data)} className={"tree-item"}>{data.children && "^"} {nameFromType(data.type)}</p>
-      {data.openInTree && data.children && (
-        data.children.map(child => RenderTreeItems(child, nestedIndex + 1, handleClick))
-      )}
+      <div
+        style={{ paddingLeft: `${nestedIndex * 20}px`, paddingRight: "20px" }}
+        onClick={() => handleClick(data)}
+        className={"tree-item"}
+      >
+        <div className={"tree-item-content"}>
+          {data.children && <BsChevronRight className={data.openInTree ? "open" : "closed"} />}
+          <p>{nameFromType(data.type)}</p>
+        </div>
+      </div>
+      {data.openInTree &&
+        data.children &&
+        data.children.map(child =>
+          RenderTreeItems(child, nestedIndex + 1, handleClick)
+        )}
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default Tree;
