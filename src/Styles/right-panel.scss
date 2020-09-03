@@ -70,9 +70,10 @@
 
       .wrap-section {
         overflow: hidden;
-        transition: ease-in-out all 0.3s;
+        transition: ease-out all 0.3s;
         &.open {
-          max-height: 1000px;
+          overflow: unset;
+          max-height: 500px;
         }
 
         &.closed {

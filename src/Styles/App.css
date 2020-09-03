@@ -213,10 +213,11 @@ input[disabled] {
 }
 .right-panel .options .group .wrap-section {
   overflow: hidden;
-  transition: ease-in-out all 0.3s;
+  transition: ease-out all 0.3s;
 }
 .right-panel .options .group .wrap-section.open {
-  max-height: 1000px;
+  overflow: unset;
+  max-height: 500px;
 }
 .right-panel .options .group .wrap-section.closed {
   max-height: 0;
