@@ -4,7 +4,6 @@ import AllPaddings from "../../Images/padding-all.png";
 import IndividualPaddings from "../../Images/padding-individual.png";
 import {BsChevronRight} from "react-icons/bs"
 
-
 const SizingDetails = ({selected, setSelected}) => {
   const handleChangeStyle = (e) => {
     e.persist()
@@ -127,13 +126,13 @@ const SizingDetails = ({selected, setSelected}) => {
   }
 
   return (
-    (
-      <div className={"group"}>
-        <h4 onClick={handleToggleSizingAccordion} className={"heading"}>
-          Sizing
-          <BsChevronRight className={selected.options.sizingOpen ? "open" : "closed"} />
-        </h4>
-        <div className={`wrap-section ${selected.options.sizingOpen ? "open" : "closed"}`}>
+    <div className={"group"}>
+      <h4 onClick={handleToggleSizingAccordion} className={"heading"}>
+        Sizing
+        <BsChevronRight className={selected.options.sizingOpen ? "open" : "closed"}/>
+      </h4>
+      <div className={`wrap-section ${selected.options.sizingOpen ? "open" : "closed"}`}>
+        <div>
           <div className={"styling-4"}>
             <div className="box">
               <p className="p">
@@ -205,8 +204,6 @@ const SizingDetails = ({selected, setSelected}) => {
               </div>
             )}
           </div>
-
-          {/* Margin*/}
           <div className={"styling-4"}>
             <div className={"box"}>
               <p className={"p"}>Margin:</p>
@@ -251,7 +248,7 @@ const SizingDetails = ({selected, setSelected}) => {
           </div>
         </div>
       </div>
-    )
+    </div>
   )
 }
 

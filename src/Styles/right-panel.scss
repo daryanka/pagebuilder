@@ -69,14 +69,14 @@
       }
 
       .wrap-section {
-        transition: ease all 0.3s;
         overflow: hidden;
+        transition: ease-in-out all 0.3s;
         &.open {
-          height: auto;
+          max-height: 1000px;
         }
 
         &.closed {
-          height: 0;
+          max-height: 0;
         }
       }
 

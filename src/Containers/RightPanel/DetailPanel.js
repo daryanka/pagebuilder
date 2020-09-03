@@ -1,10 +1,6 @@
 import React, {useContext, useState} from "react";
 import {DELETE_SECTION, DropDataContext, getSelectedObj, UPDATE_SECTION} from "../../DropContext";
 import {CodeType, ImageType, TextType} from "../../CardTypes";
-import TextInput from "../../Components/DetailComponents/TextInput";
-import AllPaddings from "../../Images/padding-all.png";
-import IndividualPaddings from "../../Images/padding-individual.png";
-import {SketchPicker} from 'react-color';
 import CodeDetails from "./CodeDetails";
 import ImageDetails from "./ImageDetails";
 import TextDetails from "./TextDetails";
@@ -93,8 +89,8 @@ const DetailsPanel = () => {
     return (
       <div className={"options"}>
         {option}
-        <SizingDetails selected={selected} setSelected={setSelected} />
-        <BorderDetails selected={selected} setSelected={setSelected} />
+        <SizingDetails selected={selected} setSelected={setSelected}/>
+        <BorderDetails selected={selected} setSelected={setSelected}/>
       </div>
     )
 

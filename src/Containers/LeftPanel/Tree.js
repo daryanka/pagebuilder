@@ -28,7 +28,7 @@ const nameFromType = t => {
     case ImageType:
       return "Image";
     case CodeType:
-      return "Code Section";
+      return "Code Snippet";
     default:
       return "";
   }

@@ -212,14 +212,14 @@ input[disabled] {
   transform: rotate(90deg);
 }
 .right-panel .options .group .wrap-section {
-  transition: ease all 0.3s;
   overflow: hidden;
+  transition: ease-in-out all 0.3s;
 }
 .right-panel .options .group .wrap-section.open {
-  height: auto;
+  max-height: 1000px;
 }
 .right-panel .options .group .wrap-section.closed {
-  height: 0;
+  max-height: 0;
 }
 .right-panel .options .group .styling {
   display: grid;

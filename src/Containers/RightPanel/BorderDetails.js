@@ -3,6 +3,7 @@ import {SketchPicker} from "react-color";
 import TextInput from "../../Components/DetailComponents/TextInput";
 import AllPaddings from "../../Images/padding-all.png";
 import IndividualPaddings from "../../Images/padding-individual.png";
+import {BsChevronRight} from "react-icons/bs/index";
 
 const BorderDetails = ({selected, setSelected}) => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
@@ -127,118 +128,133 @@ const BorderDetails = ({selected, setSelected}) => {
     })
   }
 
+  const handleToggleSizingAccordion = () => {
+    setSelected((prev) => {
+      return {
+        ...prev,
+        options: {
+          ...prev.options,
+          borderOpen: !prev.options.borderOpen
+        }
+      }
+    })
+  }
+
   return (
     <div className={"group"}>
-      <h4 className={"heading"}>
+      <h4 onClick={handleToggleSizingAccordion} className={"heading"}>
         Border
+        <BsChevronRight className={selected.options.borderOpen ? "open" : "closed"}/>
       </h4>
-      <div className={"border-col"}>
-        <p>
-          Color:
-        </p>
-        {displayColorPicker && <div className={`cover`} onClick={() => setDisplayColorPicker(false)}/>}
-        {displayColorPicker &&
-        <div className={"picker-pos"}><SketchPicker color={selected.border.color} onChange={handleBorderColor}/>
-        </div>}
-        <div className={"border"} style={{
-          backgroundColor: selected.style.borderColor
-        }} onClick={() => setDisplayColorPicker(true)}>
-        </div>
-      </div>
-      <div className={"styling-4"}>
-        <div className={"box"}>
-          <p className={"p"}>
-            Border Style:
+      <div className={`wrap-section ${selected.options.borderOpen ? "open" : "closed"}`}>
+        <div className={"border-col"}>
+          <p>
+            Color:
           </p>
-          <div className="select">
-            <select name="borderStyle" onChange={handleChangeStyle}>
-              <option value="solid">Solid</option>
-              <option value="dotted">Dotted</option>
-              <option value="dashed">Dashed</option>
-              <option value="none">None</option>
-            </select>
+          {displayColorPicker && <div className={`cover`} onClick={() => setDisplayColorPicker(false)}/>}
+          {displayColorPicker &&
+          <div className={"picker-pos"}><SketchPicker color={selected.border.color} onChange={handleBorderColor}/>
+          </div>}
+          <div className={"border"} style={{
+            backgroundColor: selected.style.borderColor
+          }} onClick={() => setDisplayColorPicker(true)}>
           </div>
         </div>
-        <div className={"box"}>
-          <p className={"p"}>Border:</p>
-          <div className={"four-div"}>
-            <div className={"all-style"}>
-              <TextInput
-                name={"borderWidth"}
-                value={selected.style.borderWidth ? parseInt(selected.style.borderWidth) : parseInt(selected.borderWidthOptions.borderWidth)}
-                disabled={!selected.borderWidthOptions.single}
-                onChange={handleChangeStyle}
-                type={"number"}
-              />
-              <p className={"px"}>px</p>
-            </div>
-            <div className={"settings"}>
-              <img onClick={() => handleBorderWidthSwitch(false)} src={AllPaddings} alt="all-paddings"/>
-              <img onClick={() => handleBorderWidthSwitch(true)} src={IndividualPaddings}
-                   alt="individual-paddings"/>
+        <div className={"styling-4"}>
+          <div className={"box"}>
+            <p className={"p"}>
+              Border Style:
+            </p>
+            <div className="select">
+              <select name="borderStyle" onChange={handleChangeStyle}>
+                <option value="solid">Solid</option>
+                <option value="dotted">Dotted</option>
+                <option value="dashed">Dashed</option>
+                <option value="none">None</option>
+              </select>
             </div>
           </div>
-        </div>
-        {!selected.borderWidthOptions.single && (
-          <div className={"multiple"}>
-            {["Top", "Right", "Bottom", "Left"].map(el => {
-              return (
-                <div key={`border-${el}`} className={"all-style"}>
-                  <p className="label">{el}</p>
-                  <div className={"with-px"}>
-                    <TextInput
-                      name={`border${el}Width`}
-                      type={"number"}
-                      value={parseInt(selected.style[`border${el}Width`]) ? parseInt(selected.style[`border${el}Width`]) : 0}
-                      onChange={handleChangeStyle}
-                    />
-                    <p className={"px"}>px</p>
+          <div className={"box"}>
+            <p className={"p"}>Border:</p>
+            <div className={"four-div"}>
+              <div className={"all-style"}>
+                <TextInput
+                  name={"borderWidth"}
+                  value={selected.style.borderWidth ? parseInt(selected.style.borderWidth) : parseInt(selected.borderWidthOptions.borderWidth)}
+                  disabled={!selected.borderWidthOptions.single}
+                  onChange={handleChangeStyle}
+                  type={"number"}
+                />
+                <p className={"px"}>px</p>
+              </div>
+              <div className={"settings"}>
+                <img onClick={() => handleBorderWidthSwitch(false)} src={AllPaddings} alt="all-paddings"/>
+                <img onClick={() => handleBorderWidthSwitch(true)} src={IndividualPaddings}
+                     alt="individual-paddings"/>
+              </div>
+            </div>
+          </div>
+          {!selected.borderWidthOptions.single && (
+            <div className={"multiple"}>
+              {["Top", "Right", "Bottom", "Left"].map(el => {
+                return (
+                  <div key={`border-${el}`} className={"all-style"}>
+                    <p className="label">{el}</p>
+                    <div className={"with-px"}>
+                      <TextInput
+                        name={`border${el}Width`}
+                        type={"number"}
+                        value={parseInt(selected.style[`border${el}Width`]) ? parseInt(selected.style[`border${el}Width`]) : 0}
+                        onChange={handleChangeStyle}
+                      />
+                      <p className={"px"}>px</p>
+                    </div>
                   </div>
-                </div>
-              )
-            })}
-          </div>
-        )}
-        <div className={"box"}>
-          <p className={"p"}>Border Radius:</p>
-          <div className={"four-div"}>
-            <div className={"all-style"}>
-              <TextInput
-                name={"borderRadius"}
-                value={selected.style.borderRadius ? parseInt(selected.style.borderRadius) : parseInt(selected.borderRadiusOptions.borderRadius)}
-                disabled={!selected.borderRadiusOptions.single}
-                onChange={handleChangeStyle}
-                type={"number"}
-              />
-              <p className={"px"}>px</p>
+                )
+              })}
             </div>
-            <div className={"settings"}>
-              <img onClick={() => handleBorderRadiusSwitch(false)} src={AllPaddings} alt="all-paddings"/>
-              <img onClick={() => handleBorderRadiusSwitch(true)} src={IndividualPaddings}
-                   alt="individual-paddings"/>
+          )}
+          <div className={"box"}>
+            <p className={"p"}>Border Radius:</p>
+            <div className={"four-div"}>
+              <div className={"all-style"}>
+                <TextInput
+                  name={"borderRadius"}
+                  value={selected.style.borderRadius ? parseInt(selected.style.borderRadius) : parseInt(selected.borderRadiusOptions.borderRadius)}
+                  disabled={!selected.borderRadiusOptions.single}
+                  onChange={handleChangeStyle}
+                  type={"number"}
+                />
+                <p className={"px"}>px</p>
+              </div>
+              <div className={"settings"}>
+                <img onClick={() => handleBorderRadiusSwitch(false)} src={AllPaddings} alt="all-paddings"/>
+                <img onClick={() => handleBorderRadiusSwitch(true)} src={IndividualPaddings}
+                     alt="individual-paddings"/>
+              </div>
             </div>
           </div>
-        </div>
-        {!selected.borderRadiusOptions.single && (
-          <div className={"multiple"}>
-            {["TopRight", "TopLeft", "BottomLeft", "BottomRight"].map(el => {
-              return (
-                <div key={`border-${el}`} className={"all-style"}>
-                  <p className="label">{el}</p>
-                  <div className={"with-px"}>
-                    <TextInput
-                      name={`border${el}Radius`}
-                      type={"number"}
-                      value={parseInt(selected.style[`border${el}Radius`]) ? parseInt(selected.style[`border${el}Radius`]) : 0}
-                      onChange={handleChangeStyle}
-                    />
-                    <p className={"px"}>px</p>
+          {!selected.borderRadiusOptions.single && (
+            <div className={"multiple"}>
+              {["TopRight", "TopLeft", "BottomLeft", "BottomRight"].map(el => {
+                return (
+                  <div key={`border-${el}`} className={"all-style"}>
+                    <p className="label">{el}</p>
+                    <div className={"with-px"}>
+                      <TextInput
+                        name={`border${el}Radius`}
+                        type={"number"}
+                        value={parseInt(selected.style[`border${el}Radius`]) ? parseInt(selected.style[`border${el}Radius`]) : 0}
+                        onChange={handleChangeStyle}
+                      />
+                      <p className={"px"}>px</p>
+                    </div>
                   </div>
-                </div>
-              )
-            })}
-          </div>
-        )}
+                )
+              })}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
