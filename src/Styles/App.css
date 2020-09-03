@@ -374,7 +374,7 @@ input[disabled] {
 
 .image-type-preview {
   width: 100%;
-  height: 100%;
+  height: 70px;
   display: flex;
   background: #dfdfdf;
   justify-content: center;
@@ -385,6 +385,9 @@ input[disabled] {
   max-width: 90%;
 }
 
+.code-type-preview-jsx {
+  height: 100%;
+}
 .code-type-preview-jsx pre {
   margin: 0;
 }
@@ -412,6 +415,10 @@ input[disabled] {
 .card-preview.drop-col-2-preview.drop-col-3-preview {
   width: 130px;
 }
+.card-preview.image-preview img {
+  width: 69px;
+  height: 56px;
+}
 
 .preview-section .section {
   width: 100%;
@@ -437,6 +444,7 @@ input[disabled] {
 }
 .preview-section .droppable.is-over {
   min-height: 50px;
+  height: 100%;
 }
 .preview-section .droppable-col-2 {
   width: 100%;
