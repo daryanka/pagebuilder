@@ -82,6 +82,10 @@
         white-space: nowrap;
         border-bottom: 1px solid $lightGray;
 
+        &:hover {
+          cursor: pointer;
+        }
+
         .tree-item-content {
           display: flex;
           justify-content: flex-start;

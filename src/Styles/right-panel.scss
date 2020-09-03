@@ -47,11 +47,37 @@
       margin-bottom: 15px;
 
       .heading {
+        display: flex;
+        align-items: center;
         font-size: 22px;
         font-style: italic;
         padding-bottom: 5px;
         border-bottom: 1px solid black;
         margin-bottom: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        svg {
+          transition: ease all 0.3s;
+          margin-left: auto;
+          &.open {
+            transform: rotate(90deg);
+          }
+        }
+      }
+
+      .wrap-section {
+        transition: ease all 0.3s;
+        overflow: hidden;
+        &.open {
+          height: auto;
+        }
+
+        &.closed {
+          height: 0;
+        }
       }
 
       .styling {

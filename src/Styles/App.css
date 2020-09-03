@@ -111,6 +111,9 @@ input[disabled] {
   white-space: nowrap;
   border-bottom: 1px solid rgba(37, 37, 37, 0.5);
 }
+.left-panel .component-list-wrapper .tree-wrapper .tree-item:hover {
+  cursor: pointer;
+}
 .left-panel .component-list-wrapper .tree-wrapper .tree-item .tree-item-content {
   display: flex;
   justify-content: flex-start;
@@ -190,11 +193,33 @@ input[disabled] {
   margin-bottom: 15px;
 }
 .right-panel .options .group .heading {
+  display: flex;
+  align-items: center;
   font-size: 22px;
   font-style: italic;
   padding-bottom: 5px;
   border-bottom: 1px solid black;
   margin-bottom: 10px;
+}
+.right-panel .options .group .heading:hover {
+  cursor: pointer;
+}
+.right-panel .options .group .heading svg {
+  transition: ease all 0.3s;
+  margin-left: auto;
+}
+.right-panel .options .group .heading svg.open {
+  transform: rotate(90deg);
+}
+.right-panel .options .group .wrap-section {
+  transition: ease all 0.3s;
+  overflow: hidden;
+}
+.right-panel .options .group .wrap-section.open {
+  height: auto;
+}
+.right-panel .options .group .wrap-section.closed {
+  height: 0;
 }
 .right-panel .options .group .styling {
   display: grid;

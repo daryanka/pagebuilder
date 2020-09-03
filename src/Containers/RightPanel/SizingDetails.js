@@ -2,6 +2,8 @@ import React from "react";
 import TextInput from "../../Components/DetailComponents/TextInput";
 import AllPaddings from "../../Images/padding-all.png";
 import IndividualPaddings from "../../Images/padding-individual.png";
+import {BsChevronRight} from "react-icons/bs"
+
 
 const SizingDetails = ({selected, setSelected}) => {
   const handleChangeStyle = (e) => {
@@ -112,126 +114,141 @@ const SizingDetails = ({selected, setSelected}) => {
     })
   }
 
+  const handleToggleSizingAccordion = () => {
+    setSelected((prev) => {
+      return {
+        ...prev,
+        options: {
+          ...prev.options,
+          sizingOpen: !prev.options.sizingOpen
+        }
+      }
+    })
+  }
+
   return (
     (
       <div className={"group"}>
-        <h4 className={"heading"}>
+        <h4 onClick={handleToggleSizingAccordion} className={"heading"}>
           Sizing
+          <BsChevronRight className={selected.options.sizingOpen ? "open" : "closed"} />
         </h4>
-        <div className={"styling-4"}>
-          <div className="box">
-            <p className="p">
-              Width
-            </p>
-            <div className={"input-wrap"}>
-              <TextInput
-                type="text"
-                name={"width"}
-                value={selected.style.width}
-                placeholder={"100px"}
-                onChange={handleChangeStyle}
-              />
+        <div className={`wrap-section ${selected.options.sizingOpen ? "open" : "closed"}`}>
+          <div className={"styling-4"}>
+            <div className="box">
+              <p className="p">
+                Width
+              </p>
+              <div className={"input-wrap"}>
+                <TextInput
+                  type="text"
+                  name={"width"}
+                  value={selected.style.width}
+                  placeholder={"100px"}
+                  onChange={handleChangeStyle}
+                />
+              </div>
             </div>
-          </div>
-          <div className="box">
-            <p className="p">
-              Height
-            </p>
-            <div className={"input-wrap"}>
-              <TextInput
-                type="text"
-                name={"height"}
-                value={selected.style.height ? selected.style.height : ""}
-                placeholder={"100px"}
-                onChange={handleChangeStyle}
-              />
+            <div className="box">
+              <p className="p">
+                Height
+              </p>
+              <div className={"input-wrap"}>
+                <TextInput
+                  type="text"
+                  name={"height"}
+                  value={selected.style.height ? selected.style.height : ""}
+                  placeholder={"100px"}
+                  onChange={handleChangeStyle}
+                />
+              </div>
             </div>
+
+            <div className={"box"}>
+              <p className={"p"}>Padding:</p>
+              <div className={"four-div"}>
+                <div className={"all-style"}>
+                  <TextInput
+                    name={"padding"}
+                    value={parseInt(selected.style.padding) ? parseInt(selected.style.padding) : parseInt(selected.paddingOptions.padding)}
+                    disabled={!selected.paddingOptions.single}
+                    onChange={handleChangeStyle}
+                    type={"number"}
+                  />
+                  <p className={"px"}>px</p>
+                </div>
+                <div className={"settings"}>
+                  <img onClick={() => handleSwitchPadding(false)} src={AllPaddings} alt="all-paddings"/>
+                  <img onClick={() => handleSwitchPadding(true)} src={IndividualPaddings}
+                       alt="individual-paddings"/>
+                </div>
+              </div>
+            </div>
+            {!selected.paddingOptions.single && (
+              <div className={"multiple"}>
+                {["Top", "Right", "Bottom", "Left"].map(el => {
+                  return (
+                    <div key={`padding-${el}`} className={"all-style"}>
+                      <p className="label">{el}</p>
+                      <div className={"with-px"}>
+                        <TextInput
+                          name={`padding${el}`}
+                          type={"number"}
+                          value={parseInt(selected.style[`padding${el}`]) ? parseInt(selected.style[`padding${el}`]) : 0}
+                          onChange={handleChangeStyle}
+                        />
+                        <p className={"px"}>px</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            )}
           </div>
 
-          <div className={"box"}>
-            <p className={"p"}>Padding:</p>
-            <div className={"four-div"}>
-              <div className={"all-style"}>
-                <TextInput
-                  name={"padding"}
-                  value={parseInt(selected.style.padding) ? parseInt(selected.style.padding) : parseInt(selected.paddingOptions.padding)}
-                  disabled={!selected.paddingOptions.single}
-                  onChange={handleChangeStyle}
-                  type={"number"}
-                />
-                <p className={"px"}>px</p>
-              </div>
-              <div className={"settings"}>
-                <img onClick={() => handleSwitchPadding(false)} src={AllPaddings} alt="all-paddings"/>
-                <img onClick={() => handleSwitchPadding(true)} src={IndividualPaddings}
-                     alt="individual-paddings"/>
+          {/* Margin*/}
+          <div className={"styling-4"}>
+            <div className={"box"}>
+              <p className={"p"}>Margin:</p>
+              <div className={"four-div"}>
+                <div className={"all-style"}>
+                  <TextInput
+                    name={"margin"}
+                    value={parseInt(selected.style.margin) ? parseInt(selected.style.margin) : parseInt(selected.marginOptions.margin)}
+                    disabled={!selected.marginOptions.single}
+                    onChange={handleChangeStyle}
+                    type={"number"}
+                  />
+                  <p className={"px"}>px</p>
+                </div>
+                <div className={"settings"}>
+                  <img onClick={() => handleSwitchMargin(false)} src={AllPaddings} alt="all-paddings"/>
+                  <img onClick={() => handleSwitchMargin(true)} src={IndividualPaddings}
+                       alt="individual-paddings"/>
+                </div>
               </div>
             </div>
-          </div>
-          {!selected.paddingOptions.single && (
-            <div className={"multiple"}>
-              {["Top", "Right", "Bottom", "Left"].map(el => {
-                return (
-                  <div key={`padding-${el}`} className={"all-style"}>
-                    <p className="label">{el}</p>
-                    <div className={"with-px"}>
-                      <TextInput
-                        name={`padding${el}`}
-                        type={"number"}
-                        value={parseInt(selected.style[`padding${el}`]) ? parseInt(selected.style[`padding${el}`]) : 0}
-                        onChange={handleChangeStyle}
-                      />
-                      <p className={"px"}>px</p>
+            {!selected.marginOptions.single && (
+              <div className={"multiple"}>
+                {["Top", "Right", "Bottom", "Left"].map(el => {
+                  return (
+                    <div key={`margin-${el}`} className={"all-style"}>
+                      <p className="label">{el}</p>
+                      <div className={"with-px"}>
+                        <TextInput
+                          name={`margin${el}`}
+                          type={"number"}
+                          value={parseInt(selected.style[`margin${el}`]) ? parseInt(selected.style[`margin${el}`]) : 0}
+                          onChange={handleChangeStyle}
+                        />
+                        <p className={"px"}>px</p>
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
-            </div>
-          )}
-        </div>
-
-        {/* Margin*/}
-        <div className={"styling-4"}>
-          <div className={"box"}>
-            <p className={"p"}>Margin:</p>
-            <div className={"four-div"}>
-              <div className={"all-style"}>
-                <TextInput
-                  name={"margin"}
-                  value={parseInt(selected.style.margin) ? parseInt(selected.style.margin) : parseInt(selected.marginOptions.margin)}
-                  disabled={!selected.marginOptions.single}
-                  onChange={handleChangeStyle}
-                  type={"number"}
-                />
-                <p className={"px"}>px</p>
+                  )
+                })}
               </div>
-              <div className={"settings"}>
-                <img onClick={() => handleSwitchMargin(false)} src={AllPaddings} alt="all-paddings"/>
-                <img onClick={() => handleSwitchMargin(true)} src={IndividualPaddings}
-                     alt="individual-paddings"/>
-              </div>
-            </div>
+            )}
           </div>
-          {!selected.marginOptions.single && (
-            <div className={"multiple"}>
-              {["Top", "Right", "Bottom", "Left"].map(el => {
-                return (
-                  <div key={`margin-${el}`} className={"all-style"}>
-                    <p className="label">{el}</p>
-                    <div className={"with-px"}>
-                      <TextInput
-                        name={`margin${el}`}
-                        type={"number"}
-                        value={parseInt(selected.style[`margin${el}`]) ? parseInt(selected.style[`margin${el}`]) : 0}
-                        onChange={handleChangeStyle}
-                      />
-                      <p className={"px"}>px</p>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
-          )}
         </div>
       </div>
     )
