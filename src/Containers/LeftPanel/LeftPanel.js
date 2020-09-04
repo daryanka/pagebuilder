@@ -1,9 +1,10 @@
 import React, {useContext, useState} from "react";
 import Card from "../../Components/Cards/Card";
 import {CodeType, ImageType, TextType, ThreeDroppableColumns, TwoDroppableColumns} from "../../CardTypes";
-import {AiOutlineApartment, GrNewWindow, RiSettings5Line} from "react-icons/all";
-import {DropDataContext} from "../../DropContext";
+import {AiOutlineApartment, GrNewWindow, RiSettings5Line, GrTemplate} from "react-icons/all";
+import {DropDataContext, USE_TEMPLATE} from "../../DropContext";
 import Tree from "./Tree";
+import t1 from "../../Templates/t1.json"
 
 const CardList = [
   {
@@ -28,9 +29,29 @@ const CardList = [
   }
 ];
 
-const LeftPanel = (props) => {
-  // "add" - "tree" - "settings"
+const templatesList = ["Blog Post", "Landing Page"];
+
+const LeftPanel = () => {
+  const [state, dispatch] = useContext(DropDataContext)
   const [sectionOpen, setSectionOpen] = useState("add")
+
+  const handleSetTemplate = (template) => {
+    let templateData
+    switch (template) {
+      case "Blog Post":
+        templateData = t1.template
+        break;
+      case "Landing Page":
+        templateData = t1.template
+        break;
+      default:
+        return
+    }
+    dispatch({
+      type: USE_TEMPLATE,
+      payload: templateData
+    })
+  }
 
   const renderRight = () => {
     switch (sectionOpen) {
@@ -52,6 +73,17 @@ const LeftPanel = (props) => {
         return (
           <Tree/>
         )
+      case "templates":
+        return(
+          <div>
+            <h2>Templates</h2>
+            <div className={"templates-list"}>
+              {templatesList.map(el => (
+                <p key={`${el}-template`} onClick={() => handleSetTemplate(el)}>{el}</p>
+              ))}
+            </div>
+          </div>
+        )
       default:
         return
     }
@@ -70,9 +102,9 @@ const LeftPanel = (props) => {
           <p>Add Section</p>
         </div>
         <div className="divider" />
-        <div onClick={() => setSectionOpen("settings")} className="item">
-          <RiSettings5Line/>
-          <p>Settings</p>
+        <div onClick={() => setSectionOpen("templates")} className="item">
+          <GrTemplate/>
+          <p>Templates</p>
         </div>
         <div className="divider" />
       </div>

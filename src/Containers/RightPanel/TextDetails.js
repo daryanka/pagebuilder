@@ -29,7 +29,7 @@ const TextDetails = ({selected, setSelected}) => {
                 'insertdatetime table paste code help wordcount'
               ],
               toolbar:
-                'fullscreen | formatselect | bold italic backcolor | \
+                'fullscreen | formatselect | bold italic backcolor | link | \
                 alignleft aligncenter alignright alignjustify | \
                 bullist numlist outdent indent | removeformat | help'
             }}

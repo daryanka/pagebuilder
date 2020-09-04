@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Templates/t1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Sections/TextSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Sections/TextSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/LeftPanel/LeftPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/LeftPanel/LeftPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/TextDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/TextDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DropContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DropContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/droppable-area.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/droppable-area.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/left-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/left-panel.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +88,7 @@
       <workItem from="1598840583405" duration="801000" />
       <workItem from="1598893182184" duration="10912000" />
       <workItem from="1598968286250" duration="11584000" />
-      <workItem from="1599153318932" duration="7743000" />
+      <workItem from="1599153318932" duration="12819000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
       <created>1595707981929</created>
@@ -267,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599162738108</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="preview styling fixes">
+      <created>1599168033080</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1599168033080</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -289,7 +301,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed issue with first index dropping" />
     <MESSAGE value="added ability to find runningIndex by id" />
     <MESSAGE value="added ability to edit data on text" />
     <MESSAGE value="WIP" />
@@ -314,7 +325,8 @@
     <MESSAGE value="WIP adding accordion with animation" />
     <MESSAGE value="animated drop downs border and sizing" />
     <MESSAGE value="fixed overflow hidden issue with color picker" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed overflow hidden issue with color picker" />
+    <MESSAGE value="preview styling fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="preview styling fixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Inspections" timestamp="1595611383752">
@@ -329,10 +341,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595626690470" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1599162736712">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1599168031563">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599162736712" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599168031563" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1595980132914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -349,25 +361,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="748" y="142" key="SettingsEditor/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599156334496" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1599162743874">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1599168036369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599162743874" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599168036369" />
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1597690723425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597690723425" />
-    <state x="430" y="381" width="607" height="536" key="find.popup" timestamp="1599167722438">
+    <state x="430" y="381" width="607" height="536" key="find.popup" timestamp="1599193553611">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="430" y="381" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599167722438" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1597695637378">
+    <state x="430" y="381" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599193553611" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1599193884053">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597695637378" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599167982375">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599193884053" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599193887185">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599167982375" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599193887185" />
   </component>
 </project>

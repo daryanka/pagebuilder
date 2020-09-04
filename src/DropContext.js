@@ -9,6 +9,7 @@ export const CHANGE_TYPE = "CHANGE_TYPE";
 export const SET_SELECTED = "SET_SELECTED";
 export const UPDATE_SECTION = "UPDATE_SECTION";
 export const DELETE_SECTION = "DELETE_SECTION";
+export const USE_TEMPLATE = "USE_TEMPLATE";
 
 
 export const getSelectedObj = (data, id) => {
@@ -103,6 +104,12 @@ const reducer = (state, action) => {
   const {runningIndex, payload, id} = action
 
   switch (action.type) {
+    case USE_TEMPLATE:
+      return {
+        data: [...action.payload],
+        isDragging: false,
+        selected: {}
+      }
     case DELETE_SECTION:
       const newStateCopy = _.cloneDeep(state.data);
 

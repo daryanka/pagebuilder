@@ -74,6 +74,19 @@ input[disabled] {
 .left-panel .left-side .item p {
   margin-top: 10px;
 }
+.left-panel .templates-list {
+  margin-top: 20px;
+}
+.left-panel .templates-list p {
+  padding: 5px 0 5px 20px;
+  border-bottom: 1px solid rgba(37, 37, 37, 0.5);
+}
+.left-panel .templates-list p:first-child {
+  border-top: 1px solid rgba(37, 37, 37, 0.5);
+}
+.left-panel .templates-list p:hover {
+  cursor: pointer;
+}
 .left-panel .component-list-wrapper {
   padding-top: 20px;
   flex: 1;
