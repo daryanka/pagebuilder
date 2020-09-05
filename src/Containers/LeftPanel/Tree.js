@@ -20,7 +20,7 @@ const nameFromType = t => {
     case TextType:
       return "Text";
     case TwoDroppableColumns:
-      return "2 Columns";
+      return "Two Columns";
     case ThreeDroppableColumns:
       return "Three Columns";
     case DroppableArea:

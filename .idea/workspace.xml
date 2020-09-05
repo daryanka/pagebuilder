@@ -2,16 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Containers/RightPanel/BackgroundDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Containers/RightPanel/DroppableDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/DroppableSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DroppableSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Sections/ImageSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Sections/ImageSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/ImageDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/ImageDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/LeftPanel/Tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/LeftPanel/Tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DropContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DropContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/droppable-area.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/droppable-area.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/general.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/general.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/right-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/right-panel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/t1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/t1.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,20 +42,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Components/Cards" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Containers/RightPanel" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Darya\AppData\Roaming\npm\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Code\react1\pagebuilder\src\Components\Cards" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Code\react1\pagebuilder\src\Containers\RightPanel" />
       <recent name="D:\Code\react1\pagebuilder\src\Styles" />
       <recent name="D:\Code\react1\pagebuilder\src\Components\Sections" />
       <recent name="D:\Code\react1\pagebuilder\src\Components" />
+      <recent name="D:\Code\react1\pagebuilder\src\Components\Cards" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\react1\pagebuilder\src\Containers\RightPanel" />
       <recent name="D:\Code\react1\pagebuilder\src\Components\Cards" />
     </key>
   </component>
@@ -90,7 +95,7 @@
       <workItem from="1598893182184" duration="10912000" />
       <workItem from="1598968286250" duration="11584000" />
       <workItem from="1599153318932" duration="13389000" />
-      <workItem from="1599246102371" duration="7609000" />
+      <workItem from="1599246102371" duration="19739000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
       <created>1595707981929</created>
@@ -288,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599194032954</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="added styling specific to image sections">
+      <created>1599266661073</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1599266661073</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TerminalProjectNonSharedOptionsProvider">
@@ -310,7 +322,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added ability to edit data on text" />
     <MESSAGE value="WIP" />
     <MESSAGE value="flexible font size + fixed css for droppable heights" />
     <MESSAGE value="fixed styling issue" />
@@ -335,7 +346,8 @@
     <MESSAGE value="fixed overflow hidden issue with color picker" />
     <MESSAGE value="preview styling fixes" />
     <MESSAGE value="Adding templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding templates" />
+    <MESSAGE value="added styling specific to image sections" />
+    <option name="LAST_COMMIT_MESSAGE" value="added styling specific to image sections" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Inspections" timestamp="1595611383752">
@@ -354,14 +366,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595626690470" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1599194030905">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1599266657892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599194030905" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1595980132914">
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599266657892" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1599280747984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595980132914" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599280747984" />
     <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1595612592273">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -382,17 +394,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597690723425" />
-    <state x="430" y="381" width="607" height="536" key="find.popup" timestamp="1599262050921">
+    <state x="430" y="381" width="607" height="536" key="find.popup" timestamp="1599303933688">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="430" y="381" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599262050921" />
+    <state x="430" y="381" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599303933688" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1599193884053">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599193884053" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599253870948">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599303918425">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599253870948" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599303918425" />
   </component>
 </project>

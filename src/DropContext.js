@@ -1,5 +1,6 @@
 import React, {createContext, useReducer, useState} from "react";
 import {DroppableArea, TextType, ThreeDroppableColumns} from "./CardTypes";
+import {v4} from "uuid";
 import _ from "lodash";
 
 export const DropDataContext = createContext();
@@ -197,7 +198,8 @@ export const DropDataProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, {
     data: [
       {
-        type: DroppableArea
+        type: DroppableArea,
+        id: v4()
       }
     ],
     isDragging: false,

@@ -1,11 +1,12 @@
 import React, {useContext, useState} from "react";
 import {DELETE_SECTION, DropDataContext, getSelectedObj, UPDATE_SECTION} from "../../DropContext";
-import {CodeType, ImageType, TextType} from "../../CardTypes";
+import {CodeType, ImageType, TextType, ThreeDroppableColumns, TwoDroppableColumns} from "../../CardTypes";
 import CodeDetails from "./CodeDetails";
 import ImageDetails from "./ImageDetails";
 import TextDetails from "./TextDetails";
 import SizingDetails from "./SizingDetails";
 import BorderDetails from "./BorderDetails";
+import DroppableDetails from "./DroppableDetails";
 
 const DetailsPanel = () => {
   const [displayColorPicker, setDisplayColorPicker] = useState(false)
@@ -83,6 +84,18 @@ const DetailsPanel = () => {
           <CodeDetails selected={selected} setSelected={setSelected}/>
         )
         break;
+      case TwoDroppableColumns:
+        return(
+          <div className="options">
+            <DroppableDetails selected={selected} setSelected={setSelected} />
+          </div>
+        )
+      case ThreeDroppableColumns:
+        return(
+          <div className="options">
+            <DroppableDetails selected={selected} setSelected={setSelected} three />
+          </div>
+        )
       default:
         return null
     }
@@ -93,8 +106,9 @@ const DetailsPanel = () => {
         <BorderDetails selected={selected} setSelected={setSelected}/>
       </div>
     )
-
   }
+
+  console.log(selected)
 
   return (
     <div>
@@ -122,6 +136,8 @@ const getName = (type) => {
       return "Code";
     case ImageType:
       return "Image"
+    case TwoDroppableColumns:
+      return "Two Columns"
     default:
       return null
   }

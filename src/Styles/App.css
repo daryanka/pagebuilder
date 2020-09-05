@@ -378,6 +378,61 @@ input[disabled] {
 .right-panel .options .group .styling-4 .multiple .all-style .with-px {
   display: flex;
 }
+.right-panel .options .section-directions {
+  display: flex;
+}
+.right-panel .options .section-directions .row-wrap, .right-panel .options .section-directions .col-wrap {
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.right-panel .options .section-directions .row-wrap .preview, .right-panel .options .section-directions .col-wrap .preview {
+  width: calc(100% - 50px);
+}
+.right-panel .options .section-directions .row-wrap .preview:hover, .right-panel .options .section-directions .col-wrap .preview:hover {
+  cursor: pointer;
+}
+.right-panel .options .section-directions .circle {
+  border-radius: 50%;
+  background: rgba(37, 37, 37, 0.5);
+  position: relative;
+  height: 25px;
+  width: 25px;
+}
+.right-panel .options .section-directions .circle:hover {
+  cursor: pointer;
+}
+.right-panel .options .section-directions .circle.selected:after {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: block;
+  content: "";
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 12.5px;
+  width: 12.5px;
+}
+.right-panel .options .section-directions .row-wrap .preview {
+  display: flex;
+}
+.right-panel .options .section-directions .row-wrap .preview .sec {
+  width: 80px;
+  height: 50px;
+  border: 2px dashed rgba(37, 37, 37, 0.5);
+}
+.right-panel .options .section-directions .col-wrap .preview {
+  display: flex;
+  flex-direction: column;
+}
+.right-panel .options .section-directions .col-wrap .preview .sec {
+  width: 80px;
+  height: 50px;
+  border: 2px dashed rgba(37, 37, 37, 0.5);
+}
 
 .two-col-preview {
   display: flex;
@@ -486,9 +541,25 @@ input[disabled] {
   width: 100%;
   display: flex;
 }
+.preview-section .droppable-col-2.column {
+  flex-direction: column;
+}
+@media only screen and (max-width: 900px) {
+  .preview-section .droppable-col-2.column-mobile {
+    flex-direction: column !important;
+  }
+}
 .preview-section .droppable-col-3 {
   width: 100%;
   display: flex;
+}
+.preview-section .droppable-col-3.column {
+  flex-direction: column;
+}
+@media only screen and (max-width: 900px) {
+  .preview-section .droppable-col-3.column-mobile {
+    flex-direction: column !important;
+  }
 }
 
 .image-section {

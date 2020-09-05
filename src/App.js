@@ -61,7 +61,7 @@ function App() {
 const renderListWithChildren = (runningIndex, currentElement) => {
   if (currentElement.children) {
     return (
-      <div key={runningIndex.join("")} className={currentElement.wrapperClassName}>
+      <div key={runningIndex.join("")} className={`${currentElement.wrapperClassName} ${currentElement.direction} ${currentElement.mobileDirection}-mobile`}>
         {currentElement.children.map((el, index) => {
           return renderListWithChildren([...runningIndex, index], el)
         })}
@@ -94,7 +94,7 @@ const renderItemFromObj = (obj, runningIndex) => {
       )
     case DroppableArea:
       return(
-        <SectionWrapper droppable={true} key={runningIndex.join("")}>
+        <SectionWrapper droppable={true} key={obj.id}>
           <DroppableSection between={obj.between} runningIndex={runningIndex} />
         </SectionWrapper>
       )

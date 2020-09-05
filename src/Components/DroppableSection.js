@@ -89,7 +89,8 @@ const DroppableSection = ({runningIndex, between}) => {
 
         options: {
           sizingOpen: false,
-          borderOpen: false
+          borderOpen: false,
+          backgroundOpen: false
         },
 
         // Left panel tree, open state, closed by initially
@@ -111,7 +112,16 @@ const DroppableSection = ({runningIndex, between}) => {
               id: v4()
             }
           ]
+          delete payload.style
+          delete payload.border
+          delete payload.paddingOptions
+          delete payload.marginOptions
+          delete payload.borderWidthOptions
+          delete payload.borderRadiusOptions
+          delete payload.options
           payload.wrapperClassName = "droppable-col-2"
+          payload.direction = "row"
+          payload.mobileDirection = "column"
           break;
         case ThreeDroppableColumns:
           payload.children = [
@@ -128,7 +138,15 @@ const DroppableSection = ({runningIndex, between}) => {
               id: v4()
             }
           ]
+          delete payload.style
+          delete payload.border
+          delete payload.paddingOptions
+          delete payload.marginOptions
+          delete payload.borderWidthOptions
+          delete payload.borderRadiusOptions
+          delete payload.options
           payload.wrapperClassName = "droppable-col-3"
+          payload.direction = "row"
           break;
         case ImageType:
           payload.imgAlt = ""
