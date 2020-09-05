@@ -131,10 +131,12 @@ const DroppableSection = ({runningIndex, between}) => {
           payload.wrapperClassName = "droppable-col-3"
           break;
         case ImageType:
-          payload.style = {
-            ...payload.style,
-            height: "100px"
+          payload.imgAlt = ""
+          payload.imgStyle = {
+            height: "100px",
+            width: "auto"
           }
+          payload.imgPosition = "left"
           payload.data = null
           break;
         case CodeType:

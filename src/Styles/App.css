@@ -171,12 +171,35 @@ input[disabled] {
   max-width: 50%;
   background: #bcbcbc;
 }
+.right-panel button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background: #969393;
+}
+.right-panel button:hover {
+  cursor: pointer;
+}
+.right-panel button.selected {
+  background: #7d7979;
+  font-weight: bold;
+}
 .right-panel .css-26l3qy-menu {
   z-index: 5;
 }
 .right-panel h1 {
   margin-top: 20px;
   text-align: center;
+}
+.right-panel .position-btn-wrap {
+  margin-left: auto;
+}
+.right-panel .position-btn-wrap button:nth-child(2) {
+  margin: 0 10px;
+}
+.right-panel .clear-btn-wrap {
+  margin-left: auto;
 }
 .right-panel h3 {
   text-align: center;
@@ -498,6 +521,19 @@ input[disabled] {
 
 .code-section pre {
   margin: 0 !important;
+}
+
+.img-section {
+  display: flex;
+}
+.img-section.left {
+  justify-content: flex-start;
+}
+.img-section.right {
+  justify-content: flex-end;
+}
+.img-section.center {
+  justify-content: center;
 }
 
 /*# sourceMappingURL=App.css.map */
