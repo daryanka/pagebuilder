@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Containers/RightPanel/BackgroundDetails.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Containers/RightPanel/DroppableDetails.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Containers/LeftPanel/Settings.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/DroppableSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/DroppableSection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/LeftPanel/Tree.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/LeftPanel/Tree.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Sections/CodeSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Sections/CodeSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Sections/ImageSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Sections/ImageSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/LeftPanel/LeftPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/LeftPanel/LeftPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/BorderDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/BorderDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DropContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DropContext.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/droppable-area.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/droppable-area.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Styles/right-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/right-panel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/DroppableDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/DroppableDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/SizingDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/SizingDetails.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +95,7 @@
       <workItem from="1598968286250" duration="11584000" />
       <workItem from="1599153318932" duration="13389000" />
       <workItem from="1599246102371" duration="19739000" />
+      <workItem from="1599428445545" duration="19438000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
       <created>1595707981929</created>
@@ -394,17 +394,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597690723425" />
-    <state x="430" y="381" width="607" height="536" key="find.popup" timestamp="1599303933688">
+    <state x="1147" y="259" width="607" height="536" key="find.popup" timestamp="1599458984000">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="430" y="381" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599303933688" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1599193884053">
+    <state x="1147" y="259" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599458984000" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1599458976853">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599193884053" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599303918425">
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599458976853" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599467152481">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599303918425" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599467152481" />
   </component>
 </project>

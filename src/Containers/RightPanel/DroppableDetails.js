@@ -12,7 +12,7 @@ const DroppableDetails = ({selected, setSelected, three}) => {
     <>
       <div className={"group"}>
         <h4 className={"heading"}>
-          Section Type
+          Type
         </h4>
         <div className={"section-directions"}>
           <div className={"row-wrap"}>

@@ -5,6 +5,7 @@ import {AiOutlineApartment, GrNewWindow, RiSettings5Line, GrTemplate} from "reac
 import {DropDataContext, USE_TEMPLATE} from "../../DropContext";
 import Tree from "./Tree";
 import t1 from "../../Templates/t1.json"
+import Settings from "./Settings";
 
 const CardList = [
   {
@@ -84,6 +85,8 @@ const LeftPanel = () => {
             </div>
           </div>
         )
+      case "settings":
+        return <Settings />
       default:
         return
     }
@@ -105,6 +108,11 @@ const LeftPanel = () => {
         <div onClick={() => setSectionOpen("templates")} className="item">
           <GrTemplate/>
           <p>Templates</p>
+        </div>
+        <div className="divider" />
+        <div onClick={() => setSectionOpen("settings")} className="item">
+          <RiSettings5Line/>
+          <p>Settings</p>
         </div>
         <div className="divider" />
       </div>

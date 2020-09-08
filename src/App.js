@@ -73,6 +73,7 @@ const renderListWithChildren = (runningIndex, currentElement) => {
 }
 
 const renderItemFromObj = (obj, runningIndex) => {
+  console.log(obj)
   switch (obj.type) {
     case TextType:
       return(
@@ -94,7 +95,7 @@ const renderItemFromObj = (obj, runningIndex) => {
       )
     case DroppableArea:
       return(
-        <SectionWrapper droppable={true} key={obj.id}>
+        <SectionWrapper droppable={true} key={runningIndex.join("")}>
           <DroppableSection between={obj.between} runningIndex={runningIndex} />
         </SectionWrapper>
       )

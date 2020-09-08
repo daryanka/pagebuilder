@@ -9,7 +9,7 @@ SyntaxHighlighter.registerLanguage("tsx", tsx);
 
 const CodeSection = ({ data, language, ...props }) => {
   return (
-    <div className={"code-section"} style={props.style ? props.style : {}}>
+    <div id={props.id} className={"code-section"} style={props.style ? props.style : {}}>
       <SyntaxHighlighter
         language={language}
         style={dracula}

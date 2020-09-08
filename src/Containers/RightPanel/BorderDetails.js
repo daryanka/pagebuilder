@@ -29,6 +29,18 @@ const BorderDetails = ({selected, setSelected}) => {
     let val = e.target.value
     val = `${e.target.value}px`
 
+    if (e.target.name === "borderStyle") {
+      return setSelected(prev => {
+        return {
+          ...prev,
+          style: {
+            ...prev.style,
+            [e.target.name]: e.target.value
+          }
+        }
+      })
+    }
+
     if (e.target.name.includes("Width")) {
       return setSelected(prev => ({
         ...prev,

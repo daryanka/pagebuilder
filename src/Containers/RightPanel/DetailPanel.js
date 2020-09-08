@@ -108,8 +108,6 @@ const DetailsPanel = () => {
     )
   }
 
-  console.log(selected)
-
   return (
     <div>
       <h1>

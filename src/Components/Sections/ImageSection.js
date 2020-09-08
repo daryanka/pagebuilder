@@ -8,9 +8,6 @@ const ImageSection = (props) => {
     files.forEach((file) => {
       const reader = new FileReader();
 
-      reader.onabort = () => console.log("file reading aborted")
-      reader.onerror = () => console.log("error reading file")
-
       reader.onload = (e) => {
         dispatch({
           type: UPDATE_SECTION,

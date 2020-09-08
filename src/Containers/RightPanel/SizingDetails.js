@@ -81,7 +81,6 @@ const SizingDetails = ({selected, setSelected}) => {
   }
 
   const handleSwitchMargin = (multiple) => {
-    console.log("here 123123")
     setSelected(prev => {
       const returnObj = {
         ...prev,

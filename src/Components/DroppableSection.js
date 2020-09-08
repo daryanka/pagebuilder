@@ -120,6 +120,7 @@ const DroppableSection = ({runningIndex, between}) => {
           delete payload.borderRadiusOptions
           delete payload.options
           payload.wrapperClassName = "droppable-col-2"
+          payload.renderClassName = "col-2"
           payload.direction = "row"
           payload.mobileDirection = "column"
           break;
@@ -146,6 +147,8 @@ const DroppableSection = ({runningIndex, between}) => {
           delete payload.borderRadiusOptions
           delete payload.options
           payload.wrapperClassName = "droppable-col-3"
+          payload.renderClassName = "col-3"
+          payload.mobileDirection = "column"
           payload.direction = "row"
           break;
         case ImageType:
