@@ -18,8 +18,12 @@ const getHTMLBoilerPlate = (content) => {
     display: flex;
   }
   
-  body, pre {
+  body {
     margin: 0;
+  }
+  
+  .code-section pre {
+    margin: 0 !important;
   }
   
   .col-2.column, .col-3.column {
@@ -102,7 +106,7 @@ const Settings = () => {
         )
       case CodeType:
         const domNode = document.getElementById(el.id)
-        return `<div class="section" style="${stylingStr}">${domNode.innerHTML}</div>`
+        return `<div class="section code-section" style="${stylingStr}">${domNode.innerHTML}</div>`
       default:
         return ""
     }

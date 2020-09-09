@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import TextInput from "../../Components/DetailComponents/TextInput";
 import AllPaddings from "../../Images/padding-all.png";
 import IndividualPaddings from "../../Images/padding-individual.png";
 import {BsChevronRight} from "react-icons/bs"
+import {SketchPicker} from "react-color";
 
 const SizingDetails = ({selected, setSelected}) => {
+  const [displayColorPicker, setDisplayColorPicker] = useState(false)
+
   const handleChangeStyle = (e) => {
     e.persist()
     let val = e.target.value
@@ -124,15 +127,80 @@ const SizingDetails = ({selected, setSelected}) => {
     })
   }
 
+  const handleBackgroundChange = (val) => {
+    const rgba = `rgba(${val.rgb.r},${val.rgb.g},${val.rgb.b},${val.rgb.a})`
+
+    console.log("selected", selected)
+    if (selected.backgroundColor.transparent) {
+      return setSelected(prev => ({
+        ...prev,
+        style: {
+          ...prev.style,
+          backgroundColor: "transparent"
+        },
+        backgroundColor: {
+          ...prev.backgroundColor,
+          color: val.rgb
+        }
+      }))
+    }
+
+    setSelected(prev => ({
+      ...prev,
+      style: {
+        ...prev.style,
+        backgroundColor: rgba
+      },
+      backgroundColor: {
+        ...prev.backgroundColor,
+        color: val.rgb
+      }
+    }))
+  }
+
+  const handleBackgroundTransparentChange = (e) => {
+    e.persist()
+    setSelected(prev => ({
+      ...prev,
+      style: {
+        ...prev.style,
+        backgroundColor: e.target.checked ? "transparent" : `rgba(${prev.backgroundColor.color.r},${prev.backgroundColor.color.g},${prev.backgroundColor.color.b},${prev.backgroundColor.color.a})`
+      },
+      backgroundColor: {
+        ...prev.backgroundColor,
+        transparent: e.target.checked
+      }
+    }))
+  }
+
   return (
     <div className={"group"}>
       <h4 onClick={handleToggleSizingAccordion} className={"heading"}>
-        Sizing
+        Sizing + Background
         <BsChevronRight className={selected.options.sizingOpen ? "open" : "closed"}/>
       </h4>
       <div className={`wrap-section ${selected.options.sizingOpen ? "open" : "closed"}`}>
         <div>
           <div className={"styling-4"}>
+            <div className={"border-col"}>
+              <p>
+                Background Color:
+              </p>
+              {displayColorPicker && <div className={`cover`} onClick={() => setDisplayColorPicker(false)}/>}
+              {displayColorPicker &&
+              <div className={"picker-pos"}><SketchPicker color={selected.backgroundColor.color} onChange={handleBackgroundChange}/>
+              </div>}
+              <div className={"bg-color"}>
+                <div className={"border"} style={{
+                  backgroundColor: selected.backgroundColor.transparent ? "#ffffff" : selected.style.backgroundColor
+                }} onClick={() => setDisplayColorPicker(true)}>
+                </div>
+                <div className={"radio-wrapper"}>
+                  <label htmlFor={"transparent"}>Transparent</label>
+                  <input checked={selected.backgroundColor.transparent} type={"checkbox"} name={"transparent"} onChange={handleBackgroundTransparentChange} />
+                </div>
+              </div>
+            </div>
             <div className="box">
               <p className="p">
                 Width

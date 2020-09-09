@@ -89,8 +89,12 @@ const DroppableSection = ({runningIndex, between}) => {
 
         options: {
           sizingOpen: false,
-          borderOpen: false,
-          backgroundOpen: false
+          borderOpen: false
+        },
+
+        backgroundColor: {
+          color: "#ffffff",
+          transparent: true
         },
 
         // Left panel tree, open state, closed by initially

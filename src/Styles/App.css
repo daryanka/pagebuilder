@@ -258,6 +258,23 @@ input[disabled] {
 .right-panel .options .group .wrap-section.closed {
   max-height: 0;
 }
+.right-panel .options .group .wrap-section .bg-color {
+  display: flex;
+}
+.right-panel .options .group .wrap-section .bg-color .border {
+  margin-right: 10px;
+}
+.right-panel .options .group .wrap-section .radio-wrapper {
+  display: flex;
+  align-items: center;
+}
+.right-panel .options .group .wrap-section .radio-wrapper label {
+  margin-right: 10px;
+}
+.right-panel .options .group .wrap-section .radio-wrapper input {
+  width: 15px;
+  height: 15px;
+}
 .right-panel .options .group .styling {
   display: grid;
   grid-template-columns: 3fr 4fr;

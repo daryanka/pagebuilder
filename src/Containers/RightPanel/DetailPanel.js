@@ -111,7 +111,7 @@ const DetailsPanel = () => {
   return (
     <div>
       <h1>
-        Details
+        Options
       </h1>
       {selected && (
         <>

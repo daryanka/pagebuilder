@@ -23,7 +23,6 @@ import LeftPanel from "./Containers/LeftPanel/LeftPanel";
 import CodeSection from "./Components/Sections/CodeSection";
 
 
-
 function App() {
   const detailsHandleRef = useRef();
   const detailsRef = useRef();
@@ -73,7 +72,6 @@ const renderListWithChildren = (runningIndex, currentElement) => {
 }
 
 const renderItemFromObj = (obj, runningIndex) => {
-  console.log(obj)
   switch (obj.type) {
     case TextType:
       return(
