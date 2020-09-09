@@ -14,12 +14,21 @@ const getHTMLBoilerPlate = (content) => {
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
   .col-2, .col-3 {
     display: flex;
   }
   
-  body {
-    margin: 0;
+  p {
+      margin: 0;
   }
   
   .code-section pre {
@@ -60,9 +69,9 @@ const getHTMLBoilerPlate = (content) => {
 <body>
   ${content}
 </body>
-</html>`
+</html>`;
 
-  return beautify.html(str, { indent_size: 2, space_in_empty_paren: true })
+  return beautify.html(str, {indent_size: 2, space_in_empty_paren: true})
 }
 
 const Settings = () => {
@@ -77,6 +86,8 @@ const Settings = () => {
     dlAnchorElem.setAttribute("download", "page.html");
     dlAnchorElem.click();
     dlAnchorElem.remove()
+
+    console.log(state)
   }
 
   const generateSectionHTML = (el) => {

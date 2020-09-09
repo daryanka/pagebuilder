@@ -83,9 +83,9 @@ const ImageDetails = ({selected, setSelected}) => {
             Position:
           </p>
           <div className={"position-btn-wrap"}>
-            <button className={selected.imgPosition === "left" && "selected"} onClick={() => handleChangeImgPosition("left")}>Left</button>
-            <button className={selected.imgPosition === "center" && "selected"} onClick={() => handleChangeImgPosition("center")}>Center</button>
-            <button className={selected.imgPosition === "right" && "selected"} onClick={() => handleChangeImgPosition("right")}>Right</button>
+            <button className={selected.imgPosition === "left" ? "selected" : ""} onClick={() => handleChangeImgPosition("left")}>Left</button>
+            <button className={selected.imgPosition === "center" ? "selected" : ""} onClick={() => handleChangeImgPosition("center")}>Center</button>
+            <button className={selected.imgPosition === "right" ? "selected" : ""} onClick={() => handleChangeImgPosition("right")}>Right</button>
           </div>
         </div>
       </div>
