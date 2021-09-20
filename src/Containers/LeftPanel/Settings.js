@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import {DropDataContext} from "../../DropContext";
 import {CodeType, ImageType, TextType} from "../../CardTypes";
 import beautify from "js-beautify";
+import {AiOutlineHtml5} from "react-icons/all";
 
 const getHTMLBoilerPlate = (content) => {
   const str = `
@@ -199,9 +200,9 @@ const Settings = () => {
   }
 
   return (
-    <div>
-      <h2>Settings</h2>
-      <button onClick={generateHTML}>Generate HTML</button>
+    <div onClick={generateHTML} className="item">
+      <AiOutlineHtml5/>
+      <p>Generate HTML</p>
     </div>
   )
 }

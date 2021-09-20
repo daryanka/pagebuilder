@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
 import Card from "../../Components/Cards/Card";
 import {CodeType, ImageType, TextType, ThreeDroppableColumns, TwoDroppableColumns} from "../../CardTypes";
-import {AiOutlineApartment, GrNewWindow, RiSettings5Line, GrTemplate} from "react-icons/all";
+import {AiOutlineApartment, GrNewWindow, GrTemplate} from "react-icons/all";
 import {DropDataContext, USE_TEMPLATE} from "../../DropContext";
 import Tree from "./Tree";
 import t1 from "../../Templates/t1.json"
@@ -30,7 +30,7 @@ const CardList = [
   }
 ];
 
-const templatesList = ["Blog Post", "Landing Page"];
+const templatesList = ["Blog Post"];
 
 const LeftPanel = () => {
   const [state, dispatch] = useContext(DropDataContext)
@@ -40,10 +40,7 @@ const LeftPanel = () => {
     let templateData
     switch (template) {
       case "Blog Post":
-        templateData = t1.template
-        break;
-      case "Landing Page":
-        templateData = t1.template
+        templateData = t1
         break;
       default:
         return
@@ -110,10 +107,7 @@ const LeftPanel = () => {
           <p>Templates</p>
         </div>
         <div className="divider" />
-        <div onClick={() => setSectionOpen("settings")} className="item">
-          <RiSettings5Line/>
-          <p>Settings</p>
-        </div>
+        <Settings />
         <div className="divider" />
       </div>
       <div className="component-list-wrapper">

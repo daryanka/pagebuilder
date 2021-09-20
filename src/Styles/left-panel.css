@@ -1,13 +1,17 @@
-.left-panel {
-  min-width: 300px;
-  background: #dcd9d5;
-  height: 100vh;
-  max-height: 100vh;
-  overflow-y: auto;
-}
-.left-panel h1 {
-  margin-top: 20px;
-  text-align: center;
-}
+/* Error: Undefined variable.
+ *    ,
+ * 11 |     border-right: 1px solid $lightGray;
+ *    |                             ^^^^^^^^^^
+ *    '
+ *   left-panel.scss 11:29  root stylesheet */
 
-/*# sourceMappingURL=left-panel.css.map */
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 11 \2502      border-right: 1px solid $lightGray;\d\a    \2502                              ^^^^^^^^^^\a    \2575 \a   left-panel.scss 11:29  root stylesheet";
+}

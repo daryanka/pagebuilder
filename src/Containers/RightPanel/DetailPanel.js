@@ -117,6 +117,12 @@ const DetailsPanel = () => {
         <>
           <h3>{getName(selected.type)}</h3>
           {renderOptions()}
+
+          {selected.type !== undefined && (
+            <div className={"options"}>
+              <button onClick={handleDel}>Remove Section</button>
+            </div>
+          )}
         </>
       )}
     </div>

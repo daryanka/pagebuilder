@@ -29,11 +29,7 @@ const CodeDetails = ({selected, setSelected}) => {
     {
       value: "tsx",
       label: "Typescript"
-    },
-    {
-      value: "go",
-      label: "Golang"
-    },
+    }
   ];
 
   return(

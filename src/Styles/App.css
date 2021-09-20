@@ -72,6 +72,7 @@ input[disabled] {
   width: 30px;
 }
 .left-panel .left-side .item p {
+  text-align: center;
   margin-top: 10px;
 }
 .left-panel .templates-list {

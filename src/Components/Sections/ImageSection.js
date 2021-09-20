@@ -1,4 +1,4 @@
-import React, {useCallback, useState, useContext, useRef} from "react";
+import React, {useCallback, useContext} from "react";
 import {DropDataContext, SET_SELECTED, UPDATE_SECTION} from "../../DropContext";
 import {useDropzone} from 'react-dropzone'
 

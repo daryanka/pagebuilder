@@ -207,6 +207,8 @@ export const DropDataProvider = (props) => {
     }
   })
 
+  console.log(JSON.stringify(state))
+
   return (
     <DropDataContext.Provider value={[state, dispatch]}>
       {props.children}

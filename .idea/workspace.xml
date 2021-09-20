@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="">
+    <list default="true" id="802f1459-bffc-48c3-a0fe-a4ea221b0588" name="Default Changelist" comment="background property in sizing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Components/Sections/ImageSection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Sections/ImageSection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/LeftPanel/LeftPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/LeftPanel/LeftPanel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Containers/LeftPanel/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/LeftPanel/Settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/ImageDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/ImageDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/CodeDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/CodeDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Containers/RightPanel/DetailPanel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DropContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DropContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/App.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/App.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/left-panel.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/left-panel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Styles/left-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/Styles/left-panel.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/t1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/t1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +32,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="NamedScopeManager">
+    <scope name="app.scss" pattern="file:src/Styles/App.scss" />
+  </component>
   <component name="ProjectId" id="1epvPvOivfhTcInA1DxpwHxXGxO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -29,24 +44,26 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Containers/RightPanel" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Darya\AppData\Roaming\npm\node_modules\prettier" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Code\react1\pagebuilder\src\Containers\RightPanel" />
+      <recent name="D:\Code\react1\pagebuilder\src\Components\Cards" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Code\react1\pagebuilder\src\Containers\RightPanel" />
       <recent name="D:\Code\react1\pagebuilder\src\Styles" />
       <recent name="D:\Code\react1\pagebuilder\src\Components\Sections" />
       <recent name="D:\Code\react1\pagebuilder\src\Components" />
-      <recent name="D:\Code\react1\pagebuilder\src\Components\Cards" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Code\react1\pagebuilder\src\Containers\RightPanel" />
       <recent name="D:\Code\react1\pagebuilder\src\Components\Cards" />
     </key>
   </component>
@@ -88,6 +105,7 @@
       <workItem from="1599246102371" duration="19739000" />
       <workItem from="1599428445545" duration="26382000" />
       <workItem from="1599626671833" duration="7562000" />
+      <workItem from="1632096444875" duration="2848000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit, added ability to replace droppable areas">
       <created>1595707981929</created>
@@ -355,62 +373,8 @@
     <MESSAGE value="background property in sizing" />
     <option name="LAST_COMMIT_MESSAGE" value="background property in sizing" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#Inspections" timestamp="1595611383752">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="178" key="#Inspections/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595611383752" />
-    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1599253496897">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599253496897" />
-    <state x="714" y="81" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596842068075">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="714" y="81" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1596842068075" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595626690470">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595626690470" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1599633024051">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599633024051" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1599633635111">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599633635111" />
-    <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1595612592273">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1595612592273" />
-    <state x="740" y="258" key="FileChooserDialogImpl" timestamp="1598206205513">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="258" key="FileChooserDialogImpl/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1598206205513" />
-    <state x="748" y="142" key="SettingsEditor" timestamp="1599156334496">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="748" y="142" key="SettingsEditor/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599156334496" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1599633031973">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599633031973" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1597690723425">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1597690723425" />
-    <state x="1147" y="259" width="607" height="536" key="find.popup" timestamp="1599633345189">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1147" y="259" width="607" height="536" key="find.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599633345189" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1599458976853">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599458976853" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599634668301">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.1.1536.824@0.0.1920.1040" timestamp="1599634668301" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
